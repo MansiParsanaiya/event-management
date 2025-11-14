@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Management System</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    Hello World !!
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Event<span>Hub</span></div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Where Moments Become Memories</h1>
+            <p>Discover, Join & Experience the Best College Events</p>
+            <a href="events.html" class="explore-btn">Explore Events</a>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="countdown-section">
+        <h2>Next Big Event Starts In</h2>
+        <div id="countdown" class="countdown"></div>
+    </section>
+
+    <!-- UPCOMING EVENTS PREVIEW -->
+    <section class="events-preview">
+        <h2>Upcoming Events</h2>
+
+        <div class="event-container">
+
+            <div class="event-card fade-in">
+                <img src="images/event1.jpg" alt="Event 1">
+                <h3>Tech Innovators Summit</h3>
+                <p>Join the biggest tech summit of the year!</p>
+                <a href="events.html" class="event-btn">Know More</a>
+            </div>
+
+            <div class="event-card fade-in">
+                <img src="images/event2.jpg" alt="Event 2">
+                <h3>Music Fiesta Night</h3>
+                <p>A musical night filled with joy & energy.</p>
+                <a href="events.html" class="event-btn">Know More</a>
+            </div>
+
+            <div class="event-card fade-in">
+                <img src="images/event3.jpg" alt="Event 3">
+                <h3>Sports Championship</h3>
+                <p>Play, cheer & celebrate sportsmanship.</p>
+                <a href="events.html" class="event-btn">Know More</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 EventHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
