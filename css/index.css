@@ -1,3 +1,30 @@
+/* --- Styles for the slider component wrapper in index.html --- */
+
+/* image slider  */
+
+.slider {
+    /* CRITICAL: Remove default padding/margin from the section */
+    margin: 0;
+    padding: 0;
+    
+    /* Ensure it spans the full width of the document */
+    width: 100%;
+    
+    /* Since the carousel inside is 100vh, we let the wrapper accommodate it */
+    height: 100vh;
+}
+
+/* Ensure the body itself doesn't cause overflow if you have a fixed header */
+body {
+    /* If you haven't done this already, it's the best way to prevent horizontal scrollbars */
+    overflow-x: hidden;
+    margin: 0; /* Remove default body margin */
+}
+
+
+
+
+
 /* ------------------------------------------------------------------- */
 /* --- 3. HERO SECTION & SEARCH BAR (Animated Focus) --- */
 /* ------------------------------------------------------------------- */
