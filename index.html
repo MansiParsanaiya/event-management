@@ -1,84 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management System</title>
-
-    <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>EventPro | Event Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Event<span>Hub</span></div>
+    <div id="header-placeholder"></div>
+    <main>
+        <!-- <section>
+            <div id="slider-placeholder"></div>
 
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+        </section> -->
 
-            <button class="menu-btn">☰</button>
-        </nav>
-    </header>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Crafting Experiences. Managing Moments.</h1>
+                <p>Find your next experience in Tech, Music, Sports, and more. We handle the rest.</p>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Where Moments Become Memories</h1>
-            <p>Discover, Join & Experience the Best College Events</p>
-            <a href="events.html" class="explore-btn">Explore Events</a>
-        </div>
-    </section>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for events by name, location, or date...">
+                    <button class="btn btn-primary" onclick="alert('Search functionality coming soon!')">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                </div>
+            </div>
+        </section>
 
-    <!-- COUNTDOWN SECTION -->
-    <section class="countdown-section">
-        <h2>Next Big Event Starts In</h2>
-        <div id="countdown" class="countdown"></div>
-    </section>
+        <section class="category-icons">
+            <h2>Popular Event Categories</h2>
+            <div class="category-grid">
+                <a href="upcoming.html?cat=music" class="category-card">
+                    <i class="fa-solid fa-music"></i>
+                    <span>Music & Concerts</span>
+                </a>
+                <a href="upcoming.html?cat=tech" class="category-card">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>Technology & Startups</span>
+                </a>
+                <a href="upcoming.html?cat=sports" class="category-card">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>Sports & Fitness</span>
+                </a>
+                <a href="upcoming.html?cat=food" class="category-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Food & Drink Events</span>
+                </a>
+                <a href="upcoming.html?cat=business" class="category-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Business & Finance</span>
+                </a>
+                <a href="upcoming.html?cat=art" class="category-card">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Arts & Culture</span>
+                </a>
+                <a href="upcoming.html?cat=health" class="category-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Health & Wellness</span>
+                </a>
+                <a href="upcoming.html?cat=travel" class="category-card">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <span>Travel & Adventures</span>
+                </a>
+            </div>
+        </section>
 
-    <!-- UPCOMING EVENTS PREVIEW -->
-    <section class="events-preview">
-        <h2>Upcoming Events</h2>
+        <section class="carousel-container">
+            <h2>Featured Venues & Exclusive Themes</h2>
 
-        <div class="event-container">
+            <div class="carousel" id="event-carousel">
 
-            <div class="event-card fade-in">
-                <img src="images/event1.jpg" alt="Event 1">
-                <h3>Tech Innovators Summit</h3>
-                <p>Join the biggest tech summit of the year!</p>
-                <a href="events.html" class="event-btn">Know More</a>
+                <button class="carousel-control prev" id="prev-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="carousel-control next" id="next-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <div class="carousel-track">
+
+                    <div class="carousel-slide active">
+                        <img src="images/img1.jpg" alt="Venue Slide 1">
+                        <div class="slide-caption">Grand City Convention Center</div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="images/img2.png" alt="Venue Slide 2">
+                        <div class="slide-caption">Lakeside Music Venue</div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="images/img3.jpg" alt="Venue Slide 3">
+                        <div class="slide-caption">Modern Corporate Studio</div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="images/img1.jpg" alt="Venue Slide 4">
+                        <div class="slide-caption">Luxury Banquet Hall</div>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="event-card fade-in">
-                <img src="images/event2.jpg" alt="Event 2">
-                <h3>Music Fiesta Night</h3>
-                <p>A musical night filled with joy & energy.</p>
-                <a href="events.html" class="event-btn">Know More</a>
+            <div class="carousel-indicators" id="carousel-indicators"></div>
+        </section>
+
+
+        <section class="featured-events">
+            <h2>Upcoming Featured Events</h2>
+            <div class="event-grid">
+                <article class="event-card">
+                    <img src="images/img1.jpg" alt="Technology Conference">
+                    <h3>Future Tech Summit 2026</h3>
+                    <p>A global gathering of innovators and industry leaders in digital transformation.</p>
+                    <a href="event_details_1.html" class="btn btn-secondary">View Details</a>
+                </article>
+
+                <article class="event-card">
+                    <img src="images/img2.png" alt="Luxury Wedding">
+                    <h3>Luxury Grand Wedding Showcase</h3>
+                    <p>Inspiration for your dream destination wedding. Meet top planners and vendors.</p>
+                    <a href="event_details_2.html" class="btn btn-secondary">View Details</a>
+                </article>
+
+                <article class="event-card">
+                    <img src="images/img3.jpg" alt="Music Festival">
+                    <h3>Summer Vibes Music Fest</h3>
+                    <p>Three days of non-stop music and fun by the beach. Lineup announced soon!</p>
+                    <a href="event_details_3.html" class="btn btn-secondary">View Details</a>
+                </article>
             </div>
+        </section>
 
-            <div class="event-card fade-in">
-                <img src="images/event3.jpg" alt="Event 3">
-                <h3>Sports Championship</h3>
-                <p>Play, cheer & celebrate sportsmanship.</p>
-                <a href="events.html" class="event-btn">Know More</a>
-            </div>
+    </main>
 
-        </div>
-    </section>
+    <div id="footer-placeholder"></div>
+    <script src="js/load-components.js"></script>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 EventHub | All Rights Reserved</p>
-    </footer>
+    <script>
+        // js/index.js (Updated for perfect centering and gap consistency)
 
-    <script src="js/script.js"></script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const carouselContainer = document.querySelector('.carousel');
+            const originalSlides = Array.from(track.children);
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const indicatorContainer = document.getElementById('carousel-indicators');
+
+            let currentIndex = 0;
+            let isTransitioning = false;
+
+            // FIX 1: Ensure SLIDE_GAP matches CSS (20px as per your CSS provided)
+            const SLIDE_GAP = 20;
+
+            const AUTOPLAY_INTERVAL = 5000;
+
+            // --- 1. SETUP: Clone slides for infinite effect (Logic is perfect) ---
+            const clonesToMake = 2;
+
+            for (let i = 0; i < clonesToMake; i++) {
+                const cloneEnd = originalSlides[originalSlides.length - 1 - i].cloneNode(true);
+                cloneEnd.classList.add('clone');
+                track.prepend(cloneEnd);
+
+                const cloneStart = originalSlides[i].cloneNode(true);
+                cloneStart.classList.add('clone');
+                track.appendChild(cloneStart);
+            }
+
+            const slides = Array.from(track.children);
+            const totalSlides = slides.length;
+            currentIndex = clonesToMake; // Start index must be shifted past the prepended clones
+
+            // --- 2. DOTS: Create dots for ORIGINAL slides only (Logic is perfect) ---
+            originalSlides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('indicator-dot');
+                dot.addEventListener('click', () => handleDotClick(index));
+                indicatorContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.indicator-dot');
+
+            // --- 3. CORE LOGIC: Calculating position (FIXED FORMULA) ---
+
+            const getTransformAmount = () => {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const containerWidth = carouselContainer.getBoundingClientRect().width;
+
+                // 1. Calculate the distance from the START of the track to the START of the current slide
+                const startPosition = currentIndex * (slideWidth + SLIDE_GAP);
+
+                // 2. Calculate the distance from the START of the track to the CENTER of the current slide
+                const centerPosition = startPosition + (slideWidth / 2);
+
+                // 3. Subtract the distance from the START of the container to the CENTER of the container
+                // This translation T moves the slide's center to the container's center.
+                const containerCenterOffset = containerWidth / 2;
+
+                // FIX 2: Correctly calculate the required translation
+                const moveAmount = centerPosition - containerCenterOffset;
+
+                return moveAmount;
+            };
+
+            const updateVisuals = () => {
+                // Update Active Class and Dots
+                slides.forEach((slide, index) => {
+                    const originalIndex = index - clonesToMake;
+
+                    if (index === currentIndex) {
+                        slide.classList.add('active');
+
+                        if (originalIndex >= 0 && originalIndex < originalSlides.length) {
+                            dots.forEach(d => d.classList.remove('active'));
+                            dots[originalIndex].classList.add('active');
+                        }
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            };
+
+            const updateCarousel = (animated = true) => {
+                isTransitioning = animated;
+
+                track.style.transition = animated
+                    ? 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)'
+                    : 'none';
+
+                const moveAmount = getTransformAmount();
+                track.style.transform = `translateX(-${moveAmount}px)`;
+
+                updateVisuals();
+            };
+
+            // --- 4. INFINITE LOOP HANDLER (Existing logic is perfect) ---
+            track.addEventListener('transitionend', () => {
+                isTransitioning = false;
+
+                if (currentIndex === 0) {
+                    currentIndex = totalSlides - (2 * clonesToMake);
+                    updateCarousel(false);
+                } else if (currentIndex === totalSlides - clonesToMake) {
+                    currentIndex = clonesToMake;
+                    updateCarousel(false);
+                }
+            });
+
+            // --- 5. BUTTON & DOT HANDLERS (Existing logic is perfect) ---
+            const handleSlideChange = (direction) => {
+                if (isTransitioning) return;
+                currentIndex += direction;
+                updateCarousel();
+                resetAutoPlay();
+            }
+
+            const handleDotClick = (originalIndex) => {
+                if (isTransitioning) return;
+                currentIndex = originalIndex + clonesToMake;
+                updateCarousel();
+                resetAutoPlay();
+            }
+
+            prevBtn.addEventListener('click', () => handleSlideChange(-1));
+            nextBtn.addEventListener('click', () => handleSlideChange(1));
+
+            // --- 6. AUTOPLAY (Existing logic is perfect) ---
+            let autoPlayTimer;
+            const startAutoPlay = () => {
+                autoPlayTimer = setInterval(() => {
+                    handleSlideChange(1);
+                }, AUTOPLAY_INTERVAL);
+            };
+
+            const resetAutoPlay = () => {
+                clearInterval(autoPlayTimer);
+                startAutoPlay();
+            };
+
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+            // --- 7. INITIALIZATION ---
+            window.addEventListener('resize', () => updateCarousel(false));
+
+            updateCarousel(false);
+            startAutoPlay();
+        });
+    </script>
 </body>
+
 </html>

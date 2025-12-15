@@ -1,0 +1,200 @@
+/* --- Dedicated About Page Styles (css/about.css) --- */
+
+/* Re-use global variables and .container from style.css */
+
+/* 1. About Hero Section (Flexbox for Layout) */
+.about-hero {
+    background: #fdfefe; /* Nearly white background */
+    padding: 80px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 2; /* Text takes up more space */
+    padding-right: 20px;
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    line-height: 1.1;
+}
+
+.lead-text {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: #6c757d;
+}
+
+.hero-image {
+    flex: 1.5; /* Image takes up less space, but still prominent */
+    position: sticky; /* Makes the image stay put for a unique effect */
+    top: 100px;
+    align-self: flex-start;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Mission & Values Section (Two-Column Flexbox) */
+.mission-values {
+    background: #e8f4ff; /* Light blue background */
+    padding: 60px 0;
+}
+
+.mission-values .container {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.mission-block, .values-block {
+    flex: 1;
+    padding: 30px;
+    background: var(--light-bg);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.icon-large {
+    font-size: 3em;
+    color: var(--accent-color); /* Use the accent color for impact */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.mission-block h2, .values-block h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.values-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.values-block li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    color: var(--text-color);
+}
+
+.values-block li:last-child {
+    border-bottom: none;
+}
+
+.values-block li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+/* 3. Team Section (CSS Grid) */
+.team-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.section-subtext {
+    font-size: 1.2em;
+    color: #888;
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    /* Create three clean columns for the team members */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular images */
+    margin-bottom: 15px;
+    border: 4px solid var(--primary-color);
+}
+
+.team-card h4 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.team-card .title {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.3em;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .hero-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .hero-image {
+        position: static; /* Remove sticky on mobile */
+        order: -1; /* Place image above text on small screens */
+    }
+    .hero-text h1 {
+        font-size: 3em;
+    }
+    .mission-values .container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 2.2em;
+    }
+    .lead-text {
+        font-size: 1.2em;
+    }
+    .team-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}

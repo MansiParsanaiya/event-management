@@ -1,0 +1,213 @@
+/* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
+
+/* 1. Events Hero */
+.events-hero {
+    background: #e9f4ff; /* Light blue background */
+    text-align: center;
+    padding: 70px 20px;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.events-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.events-hero p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--secondary-color);
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.2em;
+    margin: 40px 0 20px;
+    color: var(--secondary-color);
+}
+
+
+/* 2. Filter Tabs (Flexbox for Alignment) */
+.events-section {
+    padding: 20px 0 80px;
+    background: var(--light-bg);
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 25px;
+    border: 2px solid var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    border-radius: 30px; /* Pill-shaped buttons */
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+
+/* 3. Event Cards Container (CSS Grid) */
+.event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Wide, spacious cards */
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Base Card Style (Flexbox for internal structure) */
+.event-card {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, opacity 0.4s;
+    border-left: 8px solid var(--accent-color); /* Strong accent border */
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Date Box (Left side of card) */
+.event-date-box {
+    flex-shrink: 0; /* Prevents shrinking */
+    width: 100px;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.event-date-box .month {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.event-date-box .day {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Event Details (Right side of card) */
+.event-details {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.event-details h3 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.event-details .location {
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.event-details .location i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.event-details .description {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/* Hidden state for JS filtering */
+.event-card.hidden {
+    display: none;
+    opacity: 0;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .event-cards-container {
+        grid-template-columns: 1fr; /* Single column on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .events-hero h1 {
+        font-size: 2.5em;
+    }
+    .event-card {
+        flex-direction: column; /* Stack date box and details on small screens */
+        text-align: center;
+        border-left: none; /* Remove left border */
+        border-top: 5px solid var(--accent-color); /* Use top border instead */
+    }
+    .event-date-box {
+        width: 100%;
+        padding: 15px 10px;
+    }
+    .event-details {
+        text-align: left;
+    }
+}
+
+/* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
+/* ... (Existing styles from step 14 remain) ... */
+
+/* 4. NEW: Geolocation Dynamic Bar (Dribbble-Style Notification) */
+.location-bar {
+    margin: 30px auto;
+    padding: 20px 30px;
+    background-color: #d4edda; /* Success/Soft Green color */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2); /* Soft green shadow */
+}
+
+.location-bar i {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: var(--accent-color);
+}
+
+.location-bar.error {
+    background-color: #f8d7da; /* Error/Soft Red color */
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* ... (Rest of existing styles from step 14 below) ... */

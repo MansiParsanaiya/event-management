@@ -1,0 +1,178 @@
+/* --- Dedicated Services Page Styles (css/services.css) --- */
+
+/* Re-use global variables from style.css */
+/* Ensure you use variables like --primary-color, --secondary-color, etc. */
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Services Hero (Unique Look) */
+.services-hero {
+    background: #e8f4ff; /* Lighter shade of blue/white */
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.services-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.services-hero p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--secondary-color);
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Unique Underline Style */
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-color); /* Use the green accent for pop */
+    border-radius: 2px;
+}
+
+
+/* Dribbble Style Service Grid (CSS Grid) */
+.service-grid-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.service-grid {
+    display: grid;
+    /* 3 columns on desktop, responsive fallback */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--primary-color); /* Subtle design element */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-top-color: var(--accent-color);
+}
+
+.service-card i {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    display: block;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+    /* Default icon background */
+    background: #f1f7fe; 
+}
+
+/* Custom Icon Colors for variety (Dribbble look) */
+.service-card .icon-blue { color: #007bff; }
+.service-card .icon-green { color: #28a745; }
+.service-card .icon-orange { color: #ff9800; }
+.service-card .icon-red { color: #e74c3c; }
+.service-card .icon-purple { color: #8e44ad; }
+.service-card .icon-teal { color: #008080; }
+
+.service-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.service-card p {
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.service-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.service-link i {
+    font-size: 1em; /* smaller icon for link */
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.service-link:hover {
+    color: #0056b3;
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Call to Action Section (CTA) */
+.cta-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--secondary-color); /* Dark section for high contrast */
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.cta-section p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 1.2em;
+}
+
+
+/* Media Query for Responsiveness */
+@media (max-width: 992px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    }
+}
+
+@media (max-width: 600px) {
+    .services-hero h1 {
+        font-size: 2.5em;
+    }
+    .section-heading {
+        font-size: 2em;
+    }
+    .cta-section h2 {
+        font-size: 2.2em;
+    }
+}

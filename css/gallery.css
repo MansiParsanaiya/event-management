@@ -1,0 +1,226 @@
+/* --- Dedicated Gallery Page Styles (css/gallery.css) --- */
+
+/* 1. Gallery Hero */
+.gallery-hero {
+    background: #f8f8f8;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.gallery-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.gallery-hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-color);
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.8em;
+    margin: 40px 0 30px;
+    color: var(--primary-color);
+}
+
+/* 2. Dribbble-Style Photo Grid (CSS Grid) */
+.gallery-section {
+    padding: 40px 0 80px;
+    background: #f1f7fe; /* Light background for contrast */
+}
+
+.photo-grid {
+    /* Define the grid container */
+    display: grid;
+    /* Create 3 columns, allowing the browser to manage row sizing */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Set auto rows to be a fixed size, allowing elements to span multiple rows */
+    grid-auto-rows: 250px; 
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.02);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.grid-item:hover img {
+    opacity: 0.8;
+}
+
+/* KEY DRIBBLER EFFECT: Element Spanning */
+
+/* Make some items span two rows (taller) */
+.item-tall {
+    grid-row-end: span 2;
+}
+
+/* Make some items span two columns (wider) */
+.item-wide {
+    grid-column-end: span 2;
+}
+
+/* Combine Wide and Tall for a highly dominant visual element */
+.item-wide.item-tall {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+
+/* 3. Lightbox Modal (Full-Screen Viewer) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Nearly opaque dark background */
+    display: none; /* Hidden by default, shown by JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lightbox-image {
+    max-width: 100%;
+    max-height: 70vh; /* Image takes up 70% of viewport height max */
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    background: white;
+    color: var(--secondary-color);
+    padding: 20px 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.lightbox-caption h3 {
+    margin: 0 0 5px;
+    font-size: 1.8em;
+}
+
+.lightbox-caption p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    user-select: none; /* Prevent text selection */
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Lightbox Modal (Initial state off-screen) */
+#lightbox-modal {
+    /* ... existing absolute/fixed positioning and background ... */
+    visibility: hidden; /* Hide completely */
+    opacity: 0; /* Fade effect */
+    transition: opacity 0.3s, visibility 0.3s;
+    /* Use fixed positioning to cover the whole screen */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lightbox Modal Active State */
+#lightbox-modal.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Lightbox Content (Optional subtle entry animation) */
+#lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    transform: scale(0.8); /* Start smaller */
+    transition: transform 0.3s ease-out;
+}
+
+#lightbox-modal.open #lightbox-content {
+    transform: scale(1); /* Grow to full size */
+}
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .photo-grid {
+        /* On medium screens, use more flexible columns */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .photo-grid {
+        /* On mobile, stack items but still allow the spanning classes to work */
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+    }
+    /* Remove column spanning on mobile to prevent single wide images */
+    .item-wide {
+        grid-column-end: auto;
+    }
+    .gallery-hero h1 {
+        font-size: 2.5em;
+    }
+}

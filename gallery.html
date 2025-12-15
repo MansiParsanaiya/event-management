@@ -3,9 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jcns</title>
+    <title>EventPro | Event Gallery</title>
+    <link rel="stylesheet" href="css/style.css"> 
+     <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="css/gallery.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    adkladkdsakldk
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">EventPro</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="upcoming.html">Events</a></li>
+                <li><a href="booking.html" class="nav-button">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-hero">
+            <div class="container">
+                <h1>Moments We've Managed</h1>
+                <p>A visual showcase of our most memorable corporate summits, grand weddings, and vibrant festivals.</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-heading">Our Event Portfolio</h2>
+                
+                <div class="photo-grid" id="photo-grid">
+                    
+                    <div class="grid-item item-wide item-tall" data-title="Tech Summit Keynote" data-desc="Opening address at the annual Future Tech Summit.">
+                        <img src="images/3714e0d1c710fdc791123423ceec4231.jpg" alt="Keynote speaker on stage">
+                    </div>
+                    
+                    <div class="grid-item" data-title="Cocktail Hour Setup" data-desc="Elegant pre-dinner reception with modern lighting.">
+                        <img src="images/Australian-landscape-wooden-bridge-night-lights-blue-sea-and-sky_iphone_320x480.jpg" alt="Elegant cocktail bar setup">
+                    </div>
+
+                    <div class="grid-item item-tall" data-title="Outdoor Festival Crowd" data-desc="A vibrant crowd enjoying the main stage performance.">
+                        <img src="images/c7e6e22099b3827f67c40105ac2fd545.jpg" alt="Crowd at an outdoor music festival">
+                    </div>
+
+                    <div class="grid-item item-wide" data-title="Product Launch Booth" data-desc="Interactive display for a major product unveiling.">
+                        <img src="images/e31d33660826b4ada482e28f1b18950f.jpg" alt="Interactive product display booth">
+                    </div>
+                    
+                    <div class="grid-item" data-title="Gala Dinner Lighting" data-desc="Ambient lighting and table setting for a corporate gala.">
+                        <img src="images/f16beeac4b5355487a3265c3d1b62c65.jpg" alt="Beautifully lit dinner tables">
+                    </div>
+                    
+                    <div class="grid-item item-wide" data-title="Wedding Reception" data-desc="First dance under a chandelier.">
+                        <img src="images/pic-1.png" alt="A couple's first dance at a wedding">
+                    </div>
+                    
+                    <div class="grid-item" data-title="Workshop Session" data-desc="A breakout session at a business seminar.">
+                        <img src="images/pic-4.png" alt="People collaborating in a workshop">
+                    </div>
+                    
+                    <div class="grid-item item-tall" data-title="Venue Exterior" data-desc="Grand entrance to the convention center.">
+                        <img src="images/pic-2.png" alt="Exterior of a large convention venue">
+                    </div>
+                    
+                    <div class="grid-item" data-title="Food & Catering" data-desc="Gourmet food display by our catering partner.">
+                        <img src="images/pic-3.png" alt="Close-up of a gourmet food spread">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Gallery Image">
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EventPro Management. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <script src="js/gallery.js"></script>
 </body>
 </html>

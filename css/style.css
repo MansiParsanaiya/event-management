@@ -1,0 +1,39 @@
+/* ------------------------------------------------------------------- */
+/* --- 1. GLOBAL RESETS & THEME VARIABLES (Refined White/Blue) --- */
+/* ------------------------------------------------------------------- */
+
+:root {
+    --primary-color: #007bff;     /* Bright Blue (Main Brand) */
+    --secondary-color: #2c3e50;   /* Darker Navy/Grey for Headings (Stronger Contrast) */
+    --accent-color: #2ecc71;      /* Emerald Green for Key Actions/Highlights (Refreshed) */
+    --text-color: #495057;        /* Standard dark grey text */
+    --light-bg: #ffffff;          /* Pure White Background */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Slightly deeper shadow for lift */
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f8f9fa; 
+    transition: background-color 0.3s; /* Smooth background changes if needed later */
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    line-height: 1.2;
+    font-weight: 700; /* Bolder headings */
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s, opacity 0.3s; /* Global link transition */
+}
+

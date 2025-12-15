@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventPro | Upcoming Events</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="css/upcoming.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">EventPro</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="upcoming.html" class="active">Events</a></li>
+                <li><a href="booking.html" class="nav-button">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="events-hero">
+            <div class="container">
+                <h1>Where The World Meets Next</h1>
+                <p>Discover the next major events managed by EventPro, from global conferences to cultural festivals.
+                </p>
+            </div>
+        </section>
+        <div class="container">
+            <div id="location-bar" class="location-bar" style="display: none;">
+            </div>
+        </div>
+        <section class="events-section">
+            <div class="container">
+                <h2 class="section-heading">Filter Events</h2>
+
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate</button>
+                    <button class="filter-btn" data-filter="festival">Festival</button>
+                    <button class="filter-btn" data-filter="seminar">Seminar</button>
+                </div>
+
+                <div class="event-cards-container">
+
+                    <article class="event-card" data-category="corporate">
+                        <div class="event-date-box">
+                            <span class="month">MAR</span>
+                            <span class="day">15</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Global Innovation Summit 2026</h3>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> San Francisco, USA</p>
+                            <p class="description">A high-profile conference focusing on AI, sustainability, and fintech
+                                innovation.</p>
+                            <a href="#" class="btn btn-secondary">Get Details</a>
+                        </div>
+                    </article>
+
+                    <article class="event-card" data-category="festival">
+                        <div class="event-date-box">
+                            <span class="month">MAY</span>
+                            <span class="day">02</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Echo Music & Arts Festival</h3>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lisbon, Portugal</p>
+                            <p class="description">Three-day outdoor celebration of global music, food, and digital art
+                                installations.</p>
+                            <a href="#" class="btn btn-secondary">Get Tickets</a>
+                        </div>
+                    </article>
+
+                    <article class="event-card" data-category="seminar">
+                        <div class="event-date-box">
+                            <span class="month">JUN</span>
+                            <span class="day">28</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Leadership Training Workshop</h3>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> London, UK</p>
+                            <p class="description">An intensive one-day seminar on advanced management and team-building
+                                skills.</p>
+                            <a href="#" class="btn btn-secondary">Register Now</a>
+                        </div>
+                    </article>
+
+                    <article class="event-card" data-category="corporate">
+                        <div class="event-date-box">
+                            <span class="month">JUL</span>
+                            <span class="day">10</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Asia-Pacific Trade Expo</h3>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> Singapore</p>
+                            <p class="description">Showcasing the latest products and services from leading companies in
+                                the region.</p>
+                            <a href="#" class="btn btn-secondary">View Booths</a>
+                        </div>
+                    </article>
+
+                    <article class="event-card" data-category="festival">
+                        <div class="event-date-box">
+                            <span class="month">AUG</span>
+                            <span class="day">20</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Global Food Truck Rally</h3>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> New York, USA</p>
+                            <p class="description">A culinary extravaganza featuring over 50 gourmet food trucks from
+                                around the world.</p>
+                            <a href="#" class="btn btn-secondary">Get Tickets</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EventPro Management. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <script src="js/events.js"></script>
+</body>
+
+</html>
