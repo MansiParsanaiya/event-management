@@ -1,200 +1,339 @@
+/* =================================================================== */
 /* --- Dedicated About Page Styles (css/about.css) --- */
+/* =================================================================== */
 
-/* Re-use global variables and .container from style.css */
+/* --- General Layout & Re-use --- */
+/* Ensure your container/wrapper classes use the same max-width as global style.css */
+.container, .hero-content-wrapper, .mission-values .container, 
+.team-grid, .final-cta-bar .section-container {
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* 1. About Hero Section (Flexbox for Layout) */
+/* ------------------------------------------------------------------- */
+/* 1. ABOUT HERO SECTION (Existing + Impact Stats) */
+/* ------------------------------------------------------------------- */
 .about-hero {
-    background: #fdfefe; /* Nearly white background */
-    padding: 80px 0;
-    border-bottom: 1px solid #eee;
+    background-color: #f1f7fe; /* Light blue background for contrast */
+    padding: 100px 0 60px;
+    text-align: center; /* Center everything in the new Hero */
+    border-bottom-left-radius: 50px; 
+    border-bottom-right-radius: 50px;
 }
 
-.hero-content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+.hero-text-block {
+    max-width: 800px;
+    margin: 0 auto 50px;
 }
 
-.hero-text {
-    flex: 2; /* Text takes up more space */
-    padding-right: 20px;
-}
-
-.hero-text h1 {
-    font-size: 3.5em;
+.about-hero h1 {
+    font-size: 4em; /* Increased size for impact */
+    font-weight: 800;
     margin-bottom: 20px;
     color: var(--secondary-color);
-    line-height: 1.1;
 }
 
-.lead-text {
+.about-hero h1 strong {
+    color: var(--primary-color);
+}
+
+.subtitle {
     font-size: 1.4em;
-    margin-bottom: 30px;
-    color: #6c757d;
+    color: var(--text-color);
+    margin-bottom: 40px;
 }
 
-.hero-image {
-    flex: 1.5; /* Image takes up less space, but still prominent */
-    position: sticky; /* Makes the image stay put for a unique effect */
-    top: 100px;
-    align-self: flex-start;
+/* --- STATS GRID (New Section) --- */
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+    border-top: 1px solid rgba(0, 123, 255, 0.2);
 }
 
-.hero-image img {
+.stat-card {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--accent-color); 
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 2. OUR STORY & HISTORY SECTION (Narrative) */
+/* ------------------------------------------------------------------- */
+.narrative-section {
+    margin: 20px;
+    padding: 100px 0;
+}
+
+.narrative-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+}
+
+.narrative-image {
+    flex: 1;
+    min-width: 45%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.story-image {
+    margin-left: 10px;
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-/* 2. Mission & Values Section (Two-Column Flexbox) */
+.narrative-image:hover .story-image {
+    transform: scale(1.03);
+}
+
+.narrative-text {
+    flex: 1.2;
+}
+
+.narrative-text h2 {
+    font-size: 3em;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.narrative-text p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. MISSION AND CORE VALUES (Dual Column) */
+/* This section replaces your original section 2 styles */
+/* ------------------------------------------------------------------- */
 .mission-values {
-    background: #e8f4ff; /* Light blue background */
-    padding: 60px 0;
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 80px 0;
+    border-top: 1px solid #eee;
 }
 
-.mission-values .container {
-    display: flex;
+.mission-values .section-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    justify-content: space-between;
 }
 
 .mission-block, .values-block {
-    flex: 1;
-    padding: 30px;
-    background: var(--light-bg);
+    padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    background: #fcfcfc;
+    border: 1px solid #e9ecef;
 }
 
-.icon-large {
-    font-size: 3em;
-    color: var(--accent-color); /* Use the accent color for impact */
-    margin-bottom: 15px;
-    display: block;
+.mission-icon, .values-icon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
 }
 
 .mission-block h2, .values-block h2 {
     font-size: 2em;
     margin-bottom: 15px;
+    color: var(--secondary-color);
 }
 
-.values-block ul {
+.value-list {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
 }
 
-.values-block li {
-    padding: 10px 0;
-    border-bottom: 1px dashed #eee;
-    color: var(--text-color);
+.value-list li {
+    font-size: 1.1em;
+    line-height: 2;
+    padding-left: 1.5em;
+    position: relative;
 }
 
-.values-block li:last-child {
-    border-bottom: none;
+.value-list li::before {
+    content: "\f00c"; /* Checkmark icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
-.values-block li i {
-    color: var(--primary-color);
-    margin-right: 10px;
-}
 
-/* 3. Team Section (CSS Grid) */
+/* ------------------------------------------------------------------- */
+/* 4. TEAM SECTION (Using your original styles, but cleaned up) */
+/* ------------------------------------------------------------------- */
 .team-section {
-    padding: 80px 0;
+    padding: 80px 20px;
     text-align: center;
 }
 
-.section-heading {
-    font-size: 2.5em;
+.team-section h2 {
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
-.section-subtext {
+.team-subtitle {
     font-size: 1.2em;
-    color: #888;
-    margin-bottom: 40px;
+    color: #6c757d;
+    margin-bottom: 50px;
 }
 
 .team-grid {
     display: grid;
-    /* Create three clean columns for the team members */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 40px;
 }
 
-.team-card {
+.team-member { /* Renamed from .team-card in your original, mapping to new HTML */
     background: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.team-card img {
-    width: 120px;
-    height: 120px;
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     object-fit: cover;
-    border-radius: 50%; /* Circular images */
-    margin-bottom: 15px;
-    border: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+    border: 5px solid #e9ecef;
 }
 
-.team-card h4 {
+.team-member h3 {
     font-size: 1.5em;
     margin-bottom: 5px;
     color: var(--primary-color);
 }
 
-.team-card .title {
+.team-role {
     color: var(--accent-color);
     font-weight: 600;
-    margin-bottom: 15px;
+    margin: 5px 0 15px;
+    font-size: 1.1em;
 }
 
-.social-links a {
+.social-link i {
+    font-size: 1.5em;
     color: var(--secondary-color);
-    font-size: 1.3em;
-    margin: 0 8px;
     transition: color 0.3s;
 }
 
-.social-links a:hover {
+.social-link i:hover {
     color: var(--primary-color);
 }
 
 
-/* Media Queries for Responsiveness */
+/* ------------------------------------------------------------------- */
+/* 5. FINAL CTA BAR (Directing users) */
+/* ------------------------------------------------------------------- */
+
+.final-cta-bar {
+    padding: 80px 20px;
+    background-color: #f1f7fe; 
+}
+
+.final-cta-bar .section-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+}
+
+.cta-card {
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.cta-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.cta-card p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* --- MEDIA QUERIES (Responsiveness) --- */
+/* ------------------------------------------------------------------- */
+
 @media (max-width: 992px) {
-    .hero-content-wrapper {
+    /* HERO SECTION */
+    .stats-grid {
         flex-direction: column;
-        gap: 30px;
+        padding-top: 30px;
     }
-    .hero-image {
-        position: static; /* Remove sticky on mobile */
-        order: -1; /* Place image above text on small screens */
-    }
-    .hero-text h1 {
+    .stat-number {
         font-size: 3em;
     }
-    .mission-values .container {
+    
+    /* NARRATIVE SECTION */
+    .narrative-section .content-wrapper {
         flex-direction: column;
+        text-align: center;
+    }
+    .narrative-image {
+        min-width: 100%;
+    }
+    .narrative-text h2 {
+        margin-top: 30px;
+    }
+
+    /* MISSION/VALUES & CTA */
+    .mission-values .section-container,
+    .final-cta-bar .section-container {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-    .hero-text h1 {
-        font-size: 2.2em;
+    .about-hero h1 {
+        font-size: 2.5em;
     }
-    .lead-text {
+    .subtitle {
         font-size: 1.2em;
     }
     .team-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr;
     }
 }

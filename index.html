@@ -89,6 +89,45 @@
             </div>
         </section>
 
+        <section id="trending-carousel" class="trending-events">
+            <h2>🔥 Trending Now</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="images/img1.jpg" alt="Networking Mixer" class="slide-image">
+                            <div class="slide-info">
+                                <h3>Professional Networking Mixer</h3>
+                                <p>Grow your contacts over cocktails. Tech industry focus.</p>
+                                <span class="slide-date">Dec 20 | 7:00 PM</span>
+                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/img2.png" alt="Art Exhibition" class="slide-image">
+                            <div class="slide-info">
+                                <h3>Modern Art Gala Opening</h3>
+                                <p>Explore cutting-edge works from emerging local artists.</p>
+                                <span class="slide-date">Jan 05 | 6:30 PM</span>
+                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/img2.png" alt="Cooking Class" class="slide-image">
+                            <div class="slide-info">
+                                <h3>Italian Pasta Making Workshop</h3>
+                                <p>Learn authentic techniques from a Michelin-star chef.</p>
+                                <span class="slide-date">Feb 15 | 10:00 AM</span>
+                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-btn" class="carousel-control prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="next-btn" class="carousel-control next"><i class="fa-solid fa-chevron-right"></i></button>
+                <div id="carousel-indicators" class="carousel-indicators"></div>
+            </div>
+        </section>
 
         <section class="featured-events">
             <h2>Upcoming Featured Events</h2>
@@ -116,18 +155,60 @@
             </div>
         </section>
 
+        <section class="organizer-cta">
+            <div class="cta-content">
+                <h2>Planning an Event?</h2>
+                <p>Host your next workshop, concert, or conference with EventPro. Enjoy seamless ticketing, marketing,
+                    and attendee management.</p>
+                <a href="organizer_dashboard.html" class="btn btn-accent">Start Selling Tickets <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <blockquote class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"EventPro made finding local tech meetups so easy. The category search is intuitive, and the
+                        checkout process was quick!"</p>
+                    <footer>— Sarah J., Developer</footer>
+                </blockquote>
+                <blockquote class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"We used EventPro for our annual summit and saw a 30% increase in attendance due to the excellent
+                        visibility. Highly recommended."</p>
+                    <footer>— Mark L., Event Organizer</footer>
+                </blockquote>
+                <blockquote class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"From browsing to booking, everything felt premium and professional. The best event platform I've
+                        used so far."</p>
+                    <footer>— Emily R., Student</footer>
+                </blockquote>
+            </div>
+        </section>
+
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/load-components.js"></script>
 
+    
+
     <script>
-        // js/index.js (Updated for perfect centering and gap consistency)
 
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.querySelector('.carousel-track');
-            const carouselContainer = document.querySelector('.carousel');
-            const originalSlides = Array.from(track.children);
+            const carouselContainer = document.querySelector('.carousel-container'); // Use the container
+            const originalSlides = Array.from(track.children).filter(el => !el.classList.contains('clone'));
+
+            // Check if carousel elements exist before proceeding
+            if (!track || !carouselContainer || originalSlides.length === 0) {
+                console.warn("Carousel elements not found or slides missing. Skipping carousel initialization.");
+                return;
+            }
+
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
             const indicatorContainer = document.getElementById('carousel-indicators');
@@ -135,76 +216,97 @@
             let currentIndex = 0;
             let isTransitioning = false;
 
-            // FIX 1: Ensure SLIDE_GAP matches CSS (20px as per your CSS provided)
+            // Configuration (Ensure SLIDE_GAP matches the CSS gap: 20px)
             const SLIDE_GAP = 20;
-
             const AUTOPLAY_INTERVAL = 5000;
-
-            // --- 1. SETUP: Clone slides for infinite effect (Logic is perfect) ---
             const clonesToMake = 2;
 
-            for (let i = 0; i < clonesToMake; i++) {
-                const cloneEnd = originalSlides[originalSlides.length - 1 - i].cloneNode(true);
-                cloneEnd.classList.add('clone');
-                track.prepend(cloneEnd);
-
-                const cloneStart = originalSlides[i].cloneNode(true);
-                cloneStart.classList.add('clone');
-                track.appendChild(cloneStart);
+            // --- 1. SETUP: Clone slides for infinite effect ---
+            if (originalSlides.length > 0 && originalSlides.length >= clonesToMake) {
+                // Append clones from the start to the end
+                for (let i = 0; i < clonesToMake; i++) {
+                    const cloneStart = originalSlides[i].cloneNode(true);
+                    cloneStart.classList.add('clone', 'clone-start');
+                    track.appendChild(cloneStart);
+                }
+                // Prepend clones from the end to the start
+                for (let i = 0; i < clonesToMake; i++) {
+                    const cloneEnd = originalSlides[originalSlides.length - 1 - i].cloneNode(true);
+                    cloneEnd.classList.add('clone', 'clone-end');
+                    track.prepend(cloneEnd);
+                }
             }
 
             const slides = Array.from(track.children);
             const totalSlides = slides.length;
             currentIndex = clonesToMake; // Start index must be shifted past the prepended clones
 
-            // --- 2. DOTS: Create dots for ORIGINAL slides only (Logic is perfect) ---
+            // --- 2. DOTS: Create dots for ORIGINAL slides only ---
             originalSlides.forEach((_, index) => {
                 const dot = document.createElement('span');
                 dot.classList.add('indicator-dot');
                 dot.addEventListener('click', () => handleDotClick(index));
                 indicatorContainer.appendChild(dot);
             });
-
             const dots = document.querySelectorAll('.indicator-dot');
+
 
             // --- 3. CORE LOGIC: Calculating position (FIXED FORMULA) ---
 
             const getTransformAmount = () => {
-                const slideWidth = slides[0].getBoundingClientRect().width;
+                // Get the width of a single slide (including margin/padding issues if any)
+                const slideWidth = slides[currentIndex].getBoundingClientRect().width;
+                // The container width is the viewport for the track
                 const containerWidth = carouselContainer.getBoundingClientRect().width;
 
-                // 1. Calculate the distance from the START of the track to the START of the current slide
-                const startPosition = currentIndex * (slideWidth + SLIDE_GAP);
+                // Calculate the width of all preceding slides and gaps (Current Index is 0-based)
+                const precedingWidths = currentIndex * slideWidth;
+                const precedingGaps = currentIndex * SLIDE_GAP;
 
-                // 2. Calculate the distance from the START of the track to the CENTER of the current slide
-                const centerPosition = startPosition + (slideWidth / 2);
+                // Total distance from the start of the TRACK to the START of the current slide
+                const startPosition = precedingWidths + precedingGaps;
 
-                // 3. Subtract the distance from the START of the container to the CENTER of the container
-                // This translation T moves the slide's center to the container's center.
+                // Total distance from the start of the TRACK to the CENTER of the current slide
+                const centerPositionInTrack = startPosition + (slideWidth / 2);
+
+                // The required translation to bring the current slide's center to the container's center
                 const containerCenterOffset = containerWidth / 2;
 
-                // FIX 2: Correctly calculate the required translation
-                const moveAmount = centerPosition - containerCenterOffset;
+                // FIX: Correctly calculate the required translation
+                const moveAmount = centerPositionInTrack - containerCenterOffset;
 
                 return moveAmount;
             };
 
             const updateVisuals = () => {
-                // Update Active Class and Dots
-                slides.forEach((slide, index) => {
-                    const originalIndex = index - clonesToMake;
+                // Calculate the index of the original slide currently active (for dots)
+                let originalIndex = currentIndex - clonesToMake;
 
+                // Handle edge case where transitionend hasn't fired yet but index is out of bounds
+                if (originalIndex < 0) {
+                    originalIndex = originalSlides.length + originalIndex;
+                } else if (originalIndex >= originalSlides.length) {
+                    originalIndex = originalIndex - originalSlides.length;
+                }
+
+
+                // Update Active Class
+                slides.forEach((slide, index) => {
                     if (index === currentIndex) {
                         slide.classList.add('active');
-
-                        if (originalIndex >= 0 && originalIndex < originalSlides.length) {
-                            dots.forEach(d => d.classList.remove('active'));
-                            dots[originalIndex].classList.add('active');
-                        }
                     } else {
                         slide.classList.remove('active');
                     }
                 });
+
+                // Update Dots
+                if (dots.length > 0) {
+                    dots.forEach(d => d.classList.remove('active'));
+                    // Only update the dot if the slide is a non-clone (index is within original bounds)
+                    if (originalIndex >= 0 && originalIndex < originalSlides.length) {
+                        dots[originalIndex].classList.add('active');
+                    }
+                }
             };
 
             const updateCarousel = (animated = true) => {
@@ -220,20 +322,26 @@
                 updateVisuals();
             };
 
-            // --- 4. INFINITE LOOP HANDLER (Existing logic is perfect) ---
+            // --- 4. INFINITE LOOP HANDLER (FIXED INDEX CHECK) ---
             track.addEventListener('transitionend', () => {
                 isTransitioning = false;
 
-                if (currentIndex === 0) {
-                    currentIndex = totalSlides - (2 * clonesToMake);
-                    updateCarousel(false);
-                } else if (currentIndex === totalSlides - clonesToMake) {
+                // Check if we hit the CLONED start slides (meaning we wrapped around from the end)
+                if (currentIndex === totalSlides - clonesToMake) {
+                    // Instantly snap back to the start of the ORIGINAL slides block
                     currentIndex = clonesToMake;
                     updateCarousel(false);
+                    // Check if we hit the CLONED end slides (meaning we wrapped around from the start)
+                } else if (currentIndex === clonesToMake - 1) {
+                    // Instantly snap back to the end of the ORIGINAL slides block
+                    currentIndex = totalSlides - (2 * clonesToMake) - 1 + clonesToMake;
+                    updateCarousel(false);
                 }
+             
+
             });
 
-            // --- 5. BUTTON & DOT HANDLERS (Existing logic is perfect) ---
+            // --- 5. BUTTON & DOT HANDLERS ---
             const handleSlideChange = (direction) => {
                 if (isTransitioning) return;
                 currentIndex += direction;
@@ -242,16 +350,20 @@
             }
 
             const handleDotClick = (originalIndex) => {
-                if (isTransitioning) return;
-                currentIndex = originalIndex + clonesToMake;
+                // Target the correct index in the track: originalIndex + clonesToMake
+                const newIndex = originalIndex + clonesToMake;
+
+                if (newIndex === currentIndex || isTransitioning) return;
+
+                currentIndex = newIndex;
                 updateCarousel();
                 resetAutoPlay();
             }
 
-            prevBtn.addEventListener('click', () => handleSlideChange(-1));
             nextBtn.addEventListener('click', () => handleSlideChange(1));
+            prevBtn.addEventListener('click', () => handleSlideChange(-1));
 
-            // --- 6. AUTOPLAY (Existing logic is perfect) ---
+            // --- 6. AUTOPLAY ---
             let autoPlayTimer;
             const startAutoPlay = () => {
                 autoPlayTimer = setInterval(() => {
@@ -270,10 +382,12 @@
             // --- 7. INITIALIZATION ---
             window.addEventListener('resize', () => updateCarousel(false));
 
+            // Initial setup for centering the first slide (which is at index = clonesToMake)
             updateCarousel(false);
             startAutoPlay();
         });
     </script>
+
 
 </body>
 
