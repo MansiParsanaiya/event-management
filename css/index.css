@@ -1,89 +1,4 @@
 /* ------------------------------------------------------------------- */
-/* --- 1. GLOBAL RESETS & THEME VARIABLES (Refined White/Blue) --- */
-/* ------------------------------------------------------------------- */
-/* 
-
-/* ------------------------------------------------------------------- */
-/* --- 2. NAVIGATION & HEADER (Polished) --- */
-/* ------------------------------------------------------------------- */
-
-.main-header {
-    background: white;
-    box-shadow: 0 4px 15px var(--shadow-light); /* Sharper shadow */
-    padding: 20px 40px; 
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; /* Sticky header for professional feel */
-    top: 0;
-    z-index: 50;
-}
-
-.logo a {
-    font-size: 2.2em; /* Slightly bigger logo */
-    font-weight: 800;
-    color: var(--primary-color);
-    letter-spacing: -1px; /* Subtle tightening for modern look */
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-.main-nav ul li {
-    margin-left: 30px;
-}
-
-.main-nav ul li a {
-    color: var(--secondary-color);
-    padding: 5px 0;
-    position: relative;
-    font-weight: 600;
-}
-
-/* Polished Underline Hover Effect */
-.main-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease-out;
-    border-radius: 2px;
-}
-
-.main-nav ul li a:hover::after,
-.main-nav ul li a.active::after {
-    width: 100%;
-}
-
-.nav-button {
-    background-color: var(--primary-color) !important;
-    color: white !important;
-    padding: 10px 20px !important;
-    border-radius: 8px; /* Slightly rounder */
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-    border: none;
-    transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.nav-button:hover {
-    background-color: #0056b3 !important;
-    transform: translateY(-2px); /* Subtle lift */
-    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-}
-
-/* Resetting the button's underline effect */
-.nav-button::after {
-    display: none;
-}
-
-
-/* ------------------------------------------------------------------- */
 /* --- 3. HERO SECTION & SEARCH BAR (Animated Focus) --- */
 /* ------------------------------------------------------------------- */
 
@@ -193,13 +108,14 @@
 /* --- 4. CATEGORY ICONS (Unique 3D Lift Effect) --- */
 /* ------------------------------------------------------------------- */
 
+/* --- CATEGORY ICONS SECTION (Circular Style) --- */
+
 .category-icons {
     padding: 80px 20px;
-    max-width: var(--max-width);
+    max-width: var(--max-width, 1200px);
     margin: 0 auto;
     text-align: center;
 }
-
 
 .category-icons h2 {
     font-size: 3em;
@@ -208,8 +124,9 @@
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Slightly larger min size */
-    gap: 30px;
+    /* Increased columns to fit the visual style better */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+    gap: 20px;
 }
 
 .category-card {
@@ -217,198 +134,80 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 15px; /* Bigger padding */
-    background: var(--light-bg);
+    padding: 20px 10px; 
+    background: transparent; /* Card itself is transparent */
     border-radius: 15px;
     text-decoration: none;
-    color: var(--text-color);
-    box-shadow: 0 5px 15px var(--shadow-light);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition curve */
-    border-bottom: 5px solid transparent;
+    color: var(--secondary-color); /* Dark text color */
+    /* Remove box shadow from the card container */
+    box-shadow: none; 
+    transition: transform 0.3s ease-out;
 }
 
-/* Dribbble-level Hover Effect */
-.category-card:hover {
-    transform: translate3d(0, -10px, 0); /* Lift vertically */
-    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); /* Deeper shadow */
-    border-bottom-color: var(--accent-color); /* Highlight color line */
-    color: var(--primary-color);
-}
-
-.category-card i {
-    font-size: 4.5em; /* Larger icons */
-    color: var(--primary-color);
+/* Icon Wrapper: Creates the large circle */
+.icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
-    transition: color 0.3s;
+    
+    /* Base style: White circle with subtle blue border */
+    background-color: white; 
+    border: 2px solid #ddd;
+    transition: all 0.4s ease-out;
 }
 
-.category-card:hover i {
-    color: var(--accent-color); /* Change icon color on hover */
+/* Icon Styling: Outline icon look */
+.icon-wrapper i {
+    font-size: 2.5em; /* Icon size */
+    color: var(--primary-color, #007bff); 
+    transition: color 0.4s ease-out;
 }
 
 .category-card span {
-    font-weight: 700;
-    font-size: 1.1em;
-}
-
-/* ------------------------------------------------------------------- */
-/* --- 5. IMAGE CAROUSEL (The Dribbble-Style Side-Visible Slider) --- */
-/* ------------------------------------------------------------------- */
-
-/* Container and Title */
-.carousel-container {
-    max-width: 100%;
-    margin: 60px auto; /* Slightly more margin for breathing room */
+    font-weight: 600;
+    font-size: 1em;
     text-align: center;
-    overflow: hidden; 
-    padding-bottom: 40px;
-}
-
-.carousel-container h2 {
-    font-size: 3em; /* Using the standard polished size */
-    margin-bottom: 40px; 
-    font-weight: 700;
+    /* Added to fix alignment issues when text wraps */
+    min-height: 2.2em; 
 }
 
 
-.carousel {
-    position: relative;
-    width: 100%; /* Use a percentage width for responsiveness */
-    max-width: 1200px; /* Limits width on big screens */
-    margin: 0 auto;
-    height: 500px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
+/* --- HOVER EFFECT (Matching the image) --- */
+
+.category-card:hover {
+    transform: translateY(-5px); /* Subtle lift */
+    color: var(--primary-color); /* Highlight text color on hover */
 }
 
-/* The Moving Track (The Flex Container) */
-.carousel-track {
-    display: flex;
-    gap: 20px; /* SPACE: 20px space between slides (Must match JS SLIDE_GAP) */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform;
+/* On hover, fill the background of the circle with a light/pastel color */
+.category-card:hover .icon-wrapper {
+    background-color: rgba(0, 123, 255, 0.1); /* Very light blue fill */
+    border-color: var(--primary-color); /* Primary color border */
 }
 
-/* Individual Slides */
-.carousel-slide {
-    /* KEY FOR VISIBILITY: This is what makes the side images visible */
-    min-width: calc(65% - 20px); /* Adjusted for a perfect peek on the sides */
-    height: 400px;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    opacity: 0.5;
-    transform: scale(0.9);
-    transition: all 0.5s ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    box-sizing: border-box; /* Essential to prevent issues */
+/* On hover, change the icon color */
+.category-card:hover .icon-wrapper i {
+    color: var(--accent-color, #f1683a); /* Accent color for the icon itself */
 }
 
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Active Slide (Center) */
-.carousel-slide.active {
-    opacity: 1;
-    transform: scale(1); /* Full size */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
-    z-index: 10;
-}
-
-/* Caption (Styling remains visually sharp) */
-.slide-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--secondary-color);
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 700;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.3s ease;
-}
-
-.carousel-slide.active .slide-caption {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Controls (White Circles) */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    background: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 20;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--secondary-color);
-    transition: transform 0.2s;
-}
-
-.carousel-control:hover {
-    transform: translateY(-50%) scale(1.1);
-    background: #f8f9fa;
-}
-
-.carousel-control svg {
-    width: 20px;
-    height: 20px;
-}
-
-.carousel-control.prev { left: 20px; }
-.carousel-control.next { right: 20px; }
-
-/* Indicators */
-.carousel-indicators {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.indicator-dot {
-    height: 16px; 
-    width: 16px; 
-    margin: 0 8px;
-    background-color: #ced4da;
-    border: 2px solid #ced4da;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.indicator-dot.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    transform: scale(1.2);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .carousel {
-        height: 400px;
+/* Media Query Adjustment for smaller screens */
+@media (max-width: 600px) {
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on small devices */
     }
-    .carousel-slide {
-        min-width: 85%; /* Make the slide bigger on mobile */
-        height: 350px;
+    .icon-wrapper {
+        width: 65px;
+        height: 65px;
     }
-    .carousel-control {
-        width: 45px;
-        height: 45px;
+    .icon-wrapper i {
+        font-size: 1.5em;
+    }
+    .category-card span {
+        font-size: 0.8em;
     }
 }
 
@@ -472,79 +271,3 @@
     font-size: 0.9em;
 }
 
-
-/* ------------------------------------------------------------------- */
-/* --- 7. FOOTER (Minor Polish) --- */
-/* ------------------------------------------------------------------- */
-
-footer {
-    background: var(--secondary-color);
-    color: white;
-    text-align: center;
-    padding: 35px 0; 
-    margin-top: 60px;
-    font-size: 1em;
-}
-
-.footer-links a {
-    color: #adb5bd;
-    margin: 0 15px;
-    font-weight: 500;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color); /* Use accent color on hover */
-}
-
-
-/* ------------------------------------------------------------------- */
-/* --- 8. MEDIA QUERIES (Responsiveness Check) --- */
-/* ------------------------------------------------------------------- */
-
-@media (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 3.5em;
-    }
-    .featured-events h2, .category-icons h2, .carousel-container h2 {
-        font-size: 2.5em;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-    }
-
-    .main-nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap; 
-        justify-content: center;
-    }
-
-    .main-nav ul li {
-        margin: 5px 10px;
-    }
-    
-    .hero-section {
-        height: 70vh;
-    }
-
-    .search-bar {
-        flex-direction: column;
-    }
-
-    .search-bar input,
-    .search-bar button {
-        padding: 18px 20px;
-        font-size: 1.1em;
-    }
-
-    .search-bar button {
-        width: 100%;
-        margin-top: 5px;
-    }
-    
-    .category-grid {
-         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-    }
-}

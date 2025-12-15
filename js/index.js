@@ -1,4 +1,46 @@
+// js/index.js 
+
 document.addEventListener("DOMContentLoaded", () => {
+
+
+    const mainHeader = document.querySelector('.main-header');
+    
+    // The height of the transparent section (usually the full viewport height)
+    const transitionOffset = window.innerHeight * 0.8; 
+    
+    // Header height for padding calculation
+    const headerHeight = mainHeader.offsetHeight;
+
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+
+        // 1. Transparent to Scrolled Transition Logic
+        if (scrollPosition > transitionOffset) {
+            // Apply solid background, shadow, and slide-down effect
+            mainHeader.classList.add('scrolled');
+        } else {
+            // Reset to transparent background and no shadow
+            mainHeader.classList.remove('scrolled');
+        }
+
+        // 2. Padding logic to prevent content jump (Only needed if the header changes height significantly,
+        // but often good practice with fixed headers)
+        if (mainHeader.classList.contains('scrolled')) {
+            // If the header is scrolled, ensure content starts below it.
+            // Note: Because the header is now FIXED, you might need to adjust your <main> element's CSS 
+            // to have padding-top equal to the header height to keep the full-screen slider full screen.
+        }
+    });
+
+    // We can also initialize the header to the scrolled state immediately if the page loads scrolled down
+    if (window.scrollY > transitionOffset) {
+        mainHeader.classList.add('scrolled');
+    }
+
+
+// ==================================================================================================================
+
+
     const slides = document.querySelectorAll(".carousel-slide");
     const nextBtn = document.getElementById("next-btn");
     const prevBtn = document.getElementById("prev-btn");

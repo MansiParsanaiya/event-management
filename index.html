@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventPro | Event Management System</title>
     <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -16,7 +16,6 @@
     <main>
         <!-- <section>
             <div id="slider-placeholder"></div>
-
         </section> -->
 
         <section class="hero-section">
@@ -33,86 +32,61 @@
             </div>
         </section>
 
+
         <section class="category-icons">
             <h2>Popular Event Categories</h2>
             <div class="category-grid">
+
                 <a href="upcoming.html?cat=music" class="category-card">
-                    <i class="fa-solid fa-music"></i>
-                    <span>Music & Concerts</span>
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <span>Music</span>
                 </a>
-                <a href="upcoming.html?cat=tech" class="category-card">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <span>Technology & Startups</span>
+
+                <a href="upcoming.html?cat=nightlife" class="category-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-disco-ball"></i>
+                    </div>
+                    <span>Nightlife</span>
                 </a>
-                <a href="upcoming.html?cat=sports" class="category-card">
-                    <i class="fa-solid fa-trophy"></i>
-                    <span>Sports & Fitness</span>
+
+                <a href="upcoming.html?cat=arts" class="category-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <span>Performing & Visual Arts</span>
                 </a>
-                <a href="upcoming.html?cat=food" class="category-card">
-                    <i class="fa-solid fa-utensils"></i>
-                    <span>Food & Drink Events</span>
+
+                <a href="upcoming.html?cat=dating" class="category-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <span>Dating</span>
                 </a>
+
+                <a href="upcoming.html?cat=hobbies" class="category-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <span>Hobbies</span>
+                </a>
+
                 <a href="upcoming.html?cat=business" class="category-card">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <span>Business & Finance</span>
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-chalkboard"></i>
+                    </div>
+                    <span>Business</span>
                 </a>
-                <a href="upcoming.html?cat=art" class="category-card">
-                    <i class="fa-solid fa-palette"></i>
-                    <span>Arts & Culture</span>
+
+                <a href="upcoming.html?cat=food" class="category-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-cocktail"></i>
+                    </div>
+                    <span>Food & Drink</span>
                 </a>
-                <a href="upcoming.html?cat=health" class="category-card">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <span>Health & Wellness</span>
-                </a>
-                <a href="upcoming.html?cat=travel" class="category-card">
-                    <i class="fa-solid fa-plane-departure"></i>
-                    <span>Travel & Adventures</span>
-                </a>
+
             </div>
-        </section>
-
-        <section class="carousel-container">
-            <h2>Featured Venues & Exclusive Themes</h2>
-
-            <div class="carousel" id="event-carousel">
-
-                <button class="carousel-control prev" id="prev-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="carousel-control next" id="next-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
-                <div class="carousel-track">
-
-                    <div class="carousel-slide active">
-                        <img src="images/img1.jpg" alt="Venue Slide 1">
-                        <div class="slide-caption">Grand City Convention Center</div>
-                    </div>
-
-                    <div class="carousel-slide">
-                        <img src="images/img2.png" alt="Venue Slide 2">
-                        <div class="slide-caption">Lakeside Music Venue</div>
-                    </div>
-
-                    <div class="carousel-slide">
-                        <img src="images/img3.jpg" alt="Venue Slide 3">
-                        <div class="slide-caption">Modern Corporate Studio</div>
-                    </div>
-
-                    <div class="carousel-slide">
-                        <img src="images/img1.jpg" alt="Venue Slide 4">
-                        <div class="slide-caption">Luxury Banquet Hall</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="carousel-indicators" id="carousel-indicators"></div>
         </section>
 
 
@@ -300,6 +274,7 @@
             startAutoPlay();
         });
     </script>
+
 </body>
 
 </html>

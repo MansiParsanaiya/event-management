@@ -1,14 +1,10 @@
-/* ------------------------------------------------------------------- */
-/* --- 1. GLOBAL RESETS & THEME VARIABLES (Refined White/Blue) --- */
-/* ------------------------------------------------------------------- */
-
 :root {
-    --primary-color: #007bff;     /* Bright Blue (Main Brand) */
-    --secondary-color: #2c3e50;   /* Darker Navy/Grey for Headings (Stronger Contrast) */
-    --accent-color: #2ecc71;      /* Emerald Green for Key Actions/Highlights (Refreshed) */
-    --text-color: #495057;        /* Standard dark grey text */
-    --light-bg: #ffffff;          /* Pure White Background */
-    --shadow-light: rgba(0, 0, 0, 0.08); /* Slightly deeper shadow for lift */
+    --primary-color: #007bff;      
+    --secondary-color: #2c3e50;   
+    --accent-color: #2ecc71;      
+    --text-color: #495057;        
+    --light-bg: #ffffff;          
+    --shadow-light: rgba(0, 0, 0, 0.08); 
     --max-width: 1200px;
 }
 
@@ -23,7 +19,11 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: #f8f9fa; 
-    transition: background-color 0.3s; /* Smooth background changes if needed later */
+    transition: background-color 0.3s; 
+}
+main {
+    background-color: #fcfcfc; 
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7); 
 }
 
 h1, h2, h3 {
@@ -37,3 +37,248 @@ a {
     transition: color 0.3s, opacity 0.3s; /* Global link transition */
 }
 
+
+/* ------------------------------------------------------------------- */
+/* --- 2. NAVIGATION & HEADER (Transparent to Sticky Transition) --- */
+/* ------------------------------------------------------------------- */
+
+.main-header {
+    /* Initially transparent: relies on the full-screen slider underneath */
+    background-color: transparent; 
+    box-shadow: none; /* No shadow initially */
+    padding: 20px 40px; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* CRITICAL: Must be fixed (not sticky) to sit over the slider */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* High z-index to stay above content */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+}
+
+/* Color adjustments for links in the initial transparent state (white text on dark slider background) */
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: white; /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* STICKY/SCROLLED STATE: The header becomes solid white with a shadow */
+.main-header.scrolled {
+    background-color: #ffffff; 
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15); /* Grey Shadow */
+    animation: slideDown 0.4s ease-out; /* Keeps the smooth slide-down effect */
+}
+
+/* Reset link colors when scrolled */
+.main-header.scrolled .logo a,
+.main-header.scrolled .main-nav ul li a {
+    color: var(--secondary-color); /* Change to dark color (black/dark grey) */
+    text-shadow: none;
+}
+
+
+/* --- Shared Navigation Styles (Apply to both states) --- */
+
+.logo a {
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    padding: 5px 0;
+    position: relative;
+    font-weight: 600;
+}
+
+/* Polished Underline Hover Effect */
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-out;
+    border-radius: 2px;
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+
+/* --- Navigation Button Styles (Use gradient/shadow as advised) --- */
+
+.nav-button {
+    /* Applied gradient style */
+    background: linear-gradient(135deg, var(--primary-color), #0056b3) !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 8px;
+    font-weight: bold;
+    /* Button Shadow */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+
+.nav-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80) !important;
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* Resetting the button's underline effect */
+.nav-button::after {
+    display: none;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------------- */
+/* --- 7. FOOTER (Minor Polish) --- */
+/* ------------------------------------------------------------------- */
+/* --- Footer Styles --- */
+footer {
+    background: var(--secondary-color, #1a202c); /* Dark background (adjust secondary color if needed) */
+    color: white;
+    padding: 60px 0 20px; /* Increased padding */
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.footer-column {
+    padding: 0 20px;
+    margin-bottom: 30px;
+    /* Divide 1200px roughly into 3 columns */
+    flex: 1; 
+    min-width: 250px; /* Minimum width for columns before wrapping */
+}
+
+.footer-column h3 {
+    color: var(--primary-color, #007bff); /* Use the primary color for headings */
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Contact Info Styling */
+.contact-info p {
+    margin: 10px 0;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--accent-color, #f1683a);
+}
+
+/* Links Group Styling */
+.footer-links-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links-group ul li a {
+    color: #adb5bd;
+    text-decoration: none;
+    line-height: 2.2;
+    transition: color 0.3s;
+    font-size: 0.95em;
+}
+
+.footer-links-group ul li a:hover {
+    color: var(--accent-color, #f1683a);
+}
+
+/* Social Icons Styling */
+.social-icons a {
+    color: white;
+    font-size: 1.2em;
+    margin-right: 15px;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color, #007bff);
+    transform: scale(1.1);
+}
+
+/* Legal Links and Bottom Bar */
+.footer-links a {
+    color: #adb5bd;
+    margin-right: 20px; /* Use margin-right for separation */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color, #f1683a);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+    font-size: 0.85em;
+    color: #adb5bd;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        min-width: 100%;
+    }
+
+    .social-icons {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .social-icons a {
+        margin: 0 10px;
+    }
+}
