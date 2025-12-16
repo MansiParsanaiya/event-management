@@ -14,24 +14,25 @@
 
     <div id="header-placeholder"></div>
     <main>
-        <!-- <section>
-            <div id="slider-placeholder"></div>
-        </section> -->
 
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Crafting Experiences. Managing Moments.</h1>
-                <p>Find your next experience in Tech, Music, Sports, and more. We handle the rest.</p>
+        <section id="hero-slider" class="hero-slider-section full-viewport">
 
-                <div class="search-bar">
-                    <input type="text" placeholder="Search for events by name, location, or date...">
-                    <button class="btn btn-primary" onclick="alert('Search functionality coming soon!')">
-                        <i class="fa-solid fa-magnifying-glass"></i> Search
-                    </button>
-                </div>
+            <div class="hero-image-container">
+                <img src="images/img1.jpg" alt="Dynamic Event Background" class="hero-bg-img">
+                <div class="hero-overlay"></div>
             </div>
-        </section>
 
+            <div class="hero-content-wrapper">
+                <h1 class="animate-on-load">Crafting Experiences. Managing Moments.</h1>
+
+                <p class="hero-subtitle">Discover the perfect experience in <span id="dynamic-category">Tech</span>.</p>
+
+                <a href="upcoming.html" class="btn btn-primary hero-cta-btn">Explore Events Now</a>
+
+                <a href="organizer.html" class="btn btn-secondary hero-secondary-cta">Become an Organizer</a>
+            </div>
+
+        </section>
 
         <section class="category-icons">
             <h2>Popular Event Categories</h2>
@@ -89,79 +90,98 @@
             </div>
         </section>
 
-        <section id="trending-carousel" class="trending-events">
-            <h2>🔥 Trending Now</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-track">
-                        <div class="carousel-slide">
-                            <img src="images/img1.jpg" alt="Networking Mixer" class="slide-image">
-                            <div class="slide-info">
-                                <h3>Professional Networking Mixer</h3>
-                                <p>Grow your contacts over cocktails. Tech industry focus.</p>
-                                <span class="slide-date">Dec 20 | 7:00 PM</span>
-                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/img2.png" alt="Art Exhibition" class="slide-image">
-                            <div class="slide-info">
-                                <h3>Modern Art Gala Opening</h3>
-                                <p>Explore cutting-edge works from emerging local artists.</p>
-                                <span class="slide-date">Jan 05 | 6:30 PM</span>
-                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/img2.png" alt="Cooking Class" class="slide-image">
-                            <div class="slide-info">
-                                <h3>Italian Pasta Making Workshop</h3>
-                                <p>Learn authentic techniques from a Michelin-star chef.</p>
-                                <span class="slide-date">Feb 15 | 10:00 AM</span>
-                                <a href="#" class="btn btn-primary btn-small">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button id="prev-btn" class="carousel-control prev"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="next-btn" class="carousel-control next"><i class="fa-solid fa-chevron-right"></i></button>
-                <div id="carousel-indicators" class="carousel-indicators"></div>
-            </div>
-        </section>
-
-        <section class="featured-events">
+       <section class="featured-events">
             <h2>Upcoming Featured Events</h2>
-            <div class="event-grid">
-                <article class="event-card">
-                    <img src="images/img1.jpg" alt="Technology Conference">
-                    <h3>Future Tech Summit 2026</h3>
-                    <p>A global gathering of innovators and industry leaders in digital transformation.</p>
-                    <a href="event_details_1.html" class="btn btn-secondary">View Details</a>
-                </article>
 
-                <article class="event-card">
-                    <img src="images/img2.png" alt="Luxury Wedding">
-                    <h3>Luxury Grand Wedding Showcase</h3>
-                    <p>Inspiration for your dream destination wedding. Meet top planners and vendors.</p>
-                    <a href="event_details_2.html" class="btn btn-secondary">View Details</a>
-                </article>
+            <div class="carousel-container">
+                <a href="#event1" class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/img1.jpg" alt="Description of Event 1" loading="lazy">
+                        <span class="card-badge">LIVE</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Future of Tech Expo 2026</h3>
+                        <p class="card-meta">
+                            <span class="location">📍 San Francisco</span>
+                            <span class="date">🗓️ Dec 25, 2026</span>
+                        </p>
+                        <div class="card-cta">View Details</div>
+                    </div>
+                </a>
 
-                <article class="event-card">
-                    <img src="images/img3.jpg" alt="Music Festival">
-                    <h3>Summer Vibes Music Fest</h3>
-                    <p>Three days of non-stop music and fun by the beach. Lineup announced soon!</p>
-                    <a href="event_details_3.html" class="btn btn-secondary">View Details</a>
-                </article>
+                <a href="#event2" class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/img2.png" alt="Description of Event 2" loading="lazy">
+                        <span class="card-badge">HOT</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Global Music Festival - Day 1</h3>
+                        <p class="card-meta">
+                            <span class="location">📍 London, UK</span>
+                            <span class="date">🗓️ Jan 10, 2026</span>
+                        </p>
+                        <div class="card-cta">Get Tickets</div>
+                    </div>
+                </a>
+
+                <a href="#event3" class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/img3.jpg" alt="Description of Event 3" loading="lazy">
+                        <span class="card-badge">NEW</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Design Thinking Workshop</h3>
+                        <p class="card-meta">
+                            <span class="location">📍 Virtual Event</span>
+                            <span class="date">🗓️ Upcoming</span>
+                        </p>
+                        <div class="card-cta">Join Now</div>
+                    </div>
+                </a>
+
             </div>
         </section>
 
-        <section class="organizer-cta">
-            <div class="cta-content">
-                <h2>Planning an Event?</h2>
-                <p>Host your next workshop, concert, or conference with EventPro. Enjoy seamless ticketing, marketing,
-                    and attendee management.</p>
-                <a href="organizer_dashboard.html" class="btn btn-accent">Start Selling Tickets <i
-                        class="fa-solid fa-arrow-right"></i></a>
+        <section class="value-proposition">
+            <h2>Why Choose EventPro?</h2>
+            <p class="subtitle">Experience the easiest, safest way to discover and book your next great event.</p>
+            <div class="value-grid">
+
+                <div class="value-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Verified Ticketing</h3>
+                    <p>Every ticket is verified and 100% guaranteed, ensuring seamless entry and peace of mind.</p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h3>Secure Payments</h3>
+                    <p>Your payment information is always encrypted and protected by industry-leading security
+                        standards.</p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fa-solid fa-star"></i>
+                    <h3>Curated Events Only</h3>
+                    <p>We hand-pick the best events to ensure a high-quality experience every time you book.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="work" class="work-gallery">
+            <h2>Our Work: Advanced Gallery</h2>
+            <p class="section-description">A collection of moments from our most celebrated events.</p>
+            <div class="gallery__columns-container">
+                <div class="gallery__column column--up">
+                    <div class="column__track"></div>
+                </div>
+                <div class="gallery__column column--down">
+                    <div class="column__track"></div>
+                </div>
+                <div class="gallery__column column--up">
+                    <div class="column__track"></div>
+                </div>
             </div>
         </section>
 
@@ -194,200 +214,117 @@
     <div id="footer-placeholder"></div>
     <script src="js/load-components.js"></script>
 
-    
 
     <script>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.querySelector('.carousel-track');
-            const carouselContainer = document.querySelector('.carousel-container'); // Use the container
-            const originalSlides = Array.from(track.children).filter(el => !el.classList.contains('clone'));
+        // our work
+        const workImages = [
+            'https://picsum.photos/id/10/300/450',
+            'https://picsum.photos/id/20/300/400',
+            'https://picsum.photos/id/30/300/500',
+            'https://picsum.photos/id/40/300/420',
+            'https://picsum.photos/id/50/300/480',
+            'https://picsum.photos/id/60/300/350',
+            'https://picsum.photos/id/70/300/550',
+            'https://picsum.photos/id/80/300/430',
+        ];
 
-            // Check if carousel elements exist before proceeding
-            if (!track || !carouselContainer || originalSlides.length === 0) {
-                console.warn("Carousel elements not found or slides missing. Skipping carousel initialization.");
-                return;
-            }
+        function setupWorkGallery() {
+            const columns = document.querySelectorAll('.gallery__column');
 
-            const nextBtn = document.getElementById('next-btn');
-            const prevBtn = document.getElementById('prev-btn');
-            const indicatorContainer = document.getElementById('carousel-indicators');
+            columns.forEach((column, colIndex) => {
+                const track = column.querySelector('.column__track');
 
-            let currentIndex = 0;
-            let isTransitioning = false;
+                // Create a sequence of images (the loop content)
+                const imageSequenceHTML = workImages.map(url => `
+                <div class="gallery__image">
+                    <img src="${url}" alt="Gallery image">
+                </div>
+            `).join('');
 
-            // Configuration (Ensure SLIDE_GAP matches the CSS gap: 20px)
-            const SLIDE_GAP = 20;
-            const AUTOPLAY_INTERVAL = 5000;
-            const clonesToMake = 2;
-
-            // --- 1. SETUP: Clone slides for infinite effect ---
-            if (originalSlides.length > 0 && originalSlides.length >= clonesToMake) {
-                // Append clones from the start to the end
-                for (let i = 0; i < clonesToMake; i++) {
-                    const cloneStart = originalSlides[i].cloneNode(true);
-                    cloneStart.classList.add('clone', 'clone-start');
-                    track.appendChild(cloneStart);
-                }
-                // Prepend clones from the end to the start
-                for (let i = 0; i < clonesToMake; i++) {
-                    const cloneEnd = originalSlides[originalSlides.length - 1 - i].cloneNode(true);
-                    cloneEnd.classList.add('clone', 'clone-end');
-                    track.prepend(cloneEnd);
-                }
-            }
-
-            const slides = Array.from(track.children);
-            const totalSlides = slides.length;
-            currentIndex = clonesToMake; // Start index must be shifted past the prepended clones
-
-            // --- 2. DOTS: Create dots for ORIGINAL slides only ---
-            originalSlides.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.classList.add('indicator-dot');
-                dot.addEventListener('click', () => handleDotClick(index));
-                indicatorContainer.appendChild(dot);
+                // Duplication for seamless vertical loop (repeat 2-3 times)
+                track.innerHTML = imageSequenceHTML + imageSequenceHTML;
             });
-            const dots = document.querySelectorAll('.indicator-dot');
+        }
+
+        setupWorkGallery();
 
 
-            // --- 3. CORE LOGIC: Calculating position (FIXED FORMULA) ---
+        // hero section
 
-            const getTransformAmount = () => {
-                // Get the width of a single slide (including margin/padding issues if any)
-                const slideWidth = slides[currentIndex].getBoundingClientRect().width;
-                // The container width is the viewport for the track
-                const containerWidth = carouselContainer.getBoundingClientRect().width;
+        // --- 1. Data Setup ---
+        // List of image paths (relative to your index.html)
+        const imagePaths = [
+            "images/img1.jpg", // Example: Music
+            "images/img2.jpg", // Example: Tech
+            "images/img3.jpg", // Example: Wedding
+            "images/img4.jpg"  // Example: Sports
+        ];
+        // List of corresponding dynamic text categories
+        const categories = ["Music", "Tech", "Weddings", "Sports"];
 
-                // Calculate the width of all preceding slides and gaps (Current Index is 0-based)
-                const precedingWidths = currentIndex * slideWidth;
-                const precedingGaps = currentIndex * SLIDE_GAP;
+        // --- 2. Element References ---
+        const dynamicCategoryElement = document.getElementById('dynamic-category');
+        const heroImageElement = document.querySelector('.hero-bg-img');
+        const header = document.querySelector('.main-header');
+        const heroSection = document.getElementById('hero-slider');
 
-                // Total distance from the start of the TRACK to the START of the current slide
-                const startPosition = precedingWidths + precedingGaps;
+        let currentIndex = 0;
+        const transitionTime = 4000; // Time each slide stays visible (4 seconds)
 
-                // Total distance from the start of the TRACK to the CENTER of the current slide
-                const centerPositionInTrack = startPosition + (slideWidth / 2);
 
-                // The required translation to bring the current slide's center to the container's center
-                const containerCenterOffset = containerWidth / 2;
+        // --- 3. Core Swap Function ---
 
-                // FIX: Correctly calculate the required translation
-                const moveAmount = centerPositionInTrack - containerCenterOffset;
+        function swapContent() {
+            // A. Start Fade Out (Image & Text)
+            heroImageElement.classList.add('fade-out');
+            dynamicCategoryElement.style.opacity = 0;
 
-                return moveAmount;
-            };
+            setTimeout(() => {
+                // B. Change Content (after fade-out is complete)
 
-            const updateVisuals = () => {
-                // Calculate the index of the original slide currently active (for dots)
-                let originalIndex = currentIndex - clonesToMake;
+                // 1. Advance index
+                currentIndex = (currentIndex + 1) % imagePaths.length;
 
-                // Handle edge case where transitionend hasn't fired yet but index is out of bounds
-                if (originalIndex < 0) {
-                    originalIndex = originalSlides.length + originalIndex;
-                } else if (originalIndex >= originalSlides.length) {
-                    originalIndex = originalIndex - originalSlides.length;
+                // 2. Change Image Source
+                heroImageElement.src = imagePaths[currentIndex];
+
+                // 3. Change Dynamic Text
+                dynamicCategoryElement.textContent = categories[currentIndex];
+
+                // C. Start Fade In
+                // Remove fade-out class immediately to let the CSS transition (1s) fade the new image in
+                heroImageElement.classList.remove('fade-out');
+                dynamicCategoryElement.style.opacity = 1;
+
+            }, 1000); // 1000ms delay matches the image transition time in CSS
+        }
+
+        // Start the continuous swap
+        setInterval(swapContent, transitionTime);
+
+
+        // =======================================================
+        // --- STICKY HEADER TRANSITION ---
+        // =======================================================
+
+        function handleScroll() {
+            if (heroSection) {
+                // We trigger the sticky header transition slightly before we exit the hero section
+                const scrollThreshold = heroSection.offsetHeight - 80;
+
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
-
-
-                // Update Active Class
-                slides.forEach((slide, index) => {
-                    if (index === currentIndex) {
-                        slide.classList.add('active');
-                    } else {
-                        slide.classList.remove('active');
-                    }
-                });
-
-                // Update Dots
-                if (dots.length > 0) {
-                    dots.forEach(d => d.classList.remove('active'));
-                    // Only update the dot if the slide is a non-clone (index is within original bounds)
-                    if (originalIndex >= 0 && originalIndex < originalSlides.length) {
-                        dots[originalIndex].classList.add('active');
-                    }
-                }
-            };
-
-            const updateCarousel = (animated = true) => {
-                isTransitioning = animated;
-
-                track.style.transition = animated
-                    ? 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)'
-                    : 'none';
-
-                const moveAmount = getTransformAmount();
-                track.style.transform = `translateX(-${moveAmount}px)`;
-
-                updateVisuals();
-            };
-
-            // --- 4. INFINITE LOOP HANDLER (FIXED INDEX CHECK) ---
-            track.addEventListener('transitionend', () => {
-                isTransitioning = false;
-
-                // Check if we hit the CLONED start slides (meaning we wrapped around from the end)
-                if (currentIndex === totalSlides - clonesToMake) {
-                    // Instantly snap back to the start of the ORIGINAL slides block
-                    currentIndex = clonesToMake;
-                    updateCarousel(false);
-                    // Check if we hit the CLONED end slides (meaning we wrapped around from the start)
-                } else if (currentIndex === clonesToMake - 1) {
-                    // Instantly snap back to the end of the ORIGINAL slides block
-                    currentIndex = totalSlides - (2 * clonesToMake) - 1 + clonesToMake;
-                    updateCarousel(false);
-                }
-             
-
-            });
-
-            // --- 5. BUTTON & DOT HANDLERS ---
-            const handleSlideChange = (direction) => {
-                if (isTransitioning) return;
-                currentIndex += direction;
-                updateCarousel();
-                resetAutoPlay();
             }
+        }
 
-            const handleDotClick = (originalIndex) => {
-                // Target the correct index in the track: originalIndex + clonesToMake
-                const newIndex = originalIndex + clonesToMake;
+        // Attach the scroll listener
+        window.addEventListener('scroll', handleScroll);
 
-                if (newIndex === currentIndex || isTransitioning) return;
-
-                currentIndex = newIndex;
-                updateCarousel();
-                resetAutoPlay();
-            }
-
-            nextBtn.addEventListener('click', () => handleSlideChange(1));
-            prevBtn.addEventListener('click', () => handleSlideChange(-1));
-
-            // --- 6. AUTOPLAY ---
-            let autoPlayTimer;
-            const startAutoPlay = () => {
-                autoPlayTimer = setInterval(() => {
-                    handleSlideChange(1);
-                }, AUTOPLAY_INTERVAL);
-            };
-
-            const resetAutoPlay = () => {
-                clearInterval(autoPlayTimer);
-                startAutoPlay();
-            };
-
-            carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-            carouselContainer.addEventListener('mouseleave', startAutoPlay);
-
-            // --- 7. INITIALIZATION ---
-            window.addEventListener('resize', () => updateCarousel(false));
-
-            // Initial setup for centering the first slide (which is at index = clonesToMake)
-            updateCarousel(false);
-            startAutoPlay();
-        });
     </script>
-
 
 </body>
 
