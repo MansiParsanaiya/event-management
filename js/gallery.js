@@ -60,15 +60,6 @@ document.addEventListener('keydown', function(event) {
             lightbox.classList.remove('open'); 
         } 
         
-        // 3. Arrow Keys: Navigate (if you have next/prev functions)
-        // This requires your lightbox to support navigation, which it should!
-        // if (event.key === "ArrowRight") {
-        //     // Assume you have a function called showNextImage()
-        //     showNextImage(); 
-        // } else if (event.key === "ArrowLeft") {
-        //     // Assume you have a function called showPrevImage()
-        //     showPrevImage();
-        // }
     }
 });
 

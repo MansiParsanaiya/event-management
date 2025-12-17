@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventPro | Reserve Your Date</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking_v2.css">
+    <style>
+        :root {
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --input-border: #e1e1e1;
+            --primary: #007bff;
+        }
+
+        .booking-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f7f9;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Creative Background */
+        .mesh-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(at 0% 0%, #e0eafc 0%, transparent 50%),
+                radial-gradient(at 100% 100%, #cfdef3 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .booking-card {
+            position: relative;
+            z-index: 10;
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 800px;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .card-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+        }
+
+        .card-header p {
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* Grid Layout */
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Input Styling - CLEAN & VISIBLE */
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        label i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 14px 18px;
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text-main);
+            /* Fixes "invisible text" bug */
+            background: #f9fbff;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #aaa;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+            outline: none;
+        }
+
+        /* Button with Glow */
+        .submit-glow {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="booking-page">
+        <div class="mesh-gradient"></div>
+
+        <section class="booking-card">
+            <div class="card-header">
+                <h2>Secure Your Event</h2>
+                <p>Fill in the details below to receive a custom quote.</p>
+            </div>
+
+            <form id="newBookingForm">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-user"></i> Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-envelope"></i> Email</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-calendar-days"></i> Event Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-star"></i> Event Type</label>
+                        <select required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option>Corporate Gala</option>
+                            <option>Dream Wedding</option>
+                            <option>Music Festival</option>
+                            <option>Private Party</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label><i class="fa-solid fa-pen-to-square"></i> Tell us your vision</label>
+                    <textarea rows="4" placeholder="Describe your theme, guest count, and requirements..."></textarea>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="submit-glow">
+                        Send Booking Request <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('newBookingForm');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Change button state to show "Sending"
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+                btn.style.pointerEvents = 'none';
+
+                // Simulate a server delay
+                setTimeout(() => {
+                    // Creative Success State
+                    document.querySelector('.booking-card').innerHTML = `
+                <div style="text-align:center; padding: 40px 0;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 5rem; color: #2ecc71;"></i>
+                    <h2 style="margin-top:20px;">We've Got It!</h2>
+                    <p style="color:#666; margin-top:10px;">Our event planners are already brainstorming your vision. Expect a call within 24 hours.</p>
+                    <button onclick="location.reload()" style="margin-top:30px; padding: 12px 30px; border:none; background:#007bff; color:white; border-radius:8px; cursor:pointer;">New Request</button>
+                </div>
+            `;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Creative Filter Styling */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Advanced Grid Item Effects */
+        .grid-item {
+            perspective: 1000px;
+            /* For 3D depth */
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: -100%;
+            /* Hidden initially */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+            backdrop-filter: blur(2px);
+            /* Glassmorphism */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .grid-item:hover .item-overlay {
+            bottom: 0;
+        }
+
+        .category-tag {
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .item-overlay h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .item-overlay i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-size: 2em;
+            transition: 0.3s;
+        }
+
+        .grid-item:hover i {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.8;
+        }
+
+        /* Smooth scaling for the image */
+        .grid-item img {
+            transition: transform 0.8s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Moments</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="wedding">Weddings</button>
+        <button class="filter-btn" data-filter="festival">Festivals</button>
+    </div>
+
+    <div class="photo-grid" id="photo-grid">
+        <div class="grid-item item-wide item-tall" data-category="corporate" data-title="Tech Summit" data-desc="...">
+            <img src="images/3714e0d1c710fdc791123423ceec4231.jpg" alt="">
+            <div class="item-overlay">
+                <span class="category-tag">Corporate</span>
+                <h3>Tech Summit Keynote</h3>
+                <i class="fa-solid fa-expand"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.grid-item');
+
+            // Filtering Logic
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update Active Button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => { item.style.display = 'none'; }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Tilt Effect for Mouse Movement
+            items.forEach(item => {
+                item.addEventListener('mousemove', (e) => {
+                    const { left, top, width, height } = item.getBoundingClientRect();
+                    const x = (e.clientX - left) / width - 0.5;
+                    const y = (e.clientY - top) / height - 0.5;
+
+                    item.style.transform = `perspective(1000px) rotateX(${y * 10}deg) rotateY(${-x * 10}deg) scale(1.05)`;
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

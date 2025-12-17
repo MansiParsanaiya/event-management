@@ -18,7 +18,8 @@
         <section id="hero-slider" class="hero-slider-section full-viewport">
 
             <div class="hero-image-container">
-                <img src="images/img1.jpg" alt="Dynamic Event Background" class="hero-bg-img">
+                <img src="images/decorated-wedding-hall-with-candles-round-tables-centerpieces.jpg"
+                    alt="Dynamic Event Background" class="hero-bg-img">
                 <div class="hero-overlay"></div>
             </div>
 
@@ -90,13 +91,14 @@
             </div>
         </section>
 
-       <section class="featured-events">
+        <section class="featured-events">
             <h2>Upcoming Featured Events</h2>
 
             <div class="carousel-container">
                 <a href="#event1" class="event-card">
                     <div class="card-image-wrapper">
-                        <img src="images/img1.jpg" alt="Description of Event 1" loading="lazy">
+                        <img src="images/pexels-bertellifotografia-28993112.jpg" alt="Description of Event 1"
+                            loading="lazy">
                         <span class="card-badge">LIVE</span>
                     </div>
                     <div class="card-content">
@@ -111,7 +113,8 @@
 
                 <a href="#event2" class="event-card">
                     <div class="card-image-wrapper">
-                        <img src="images/img2.png" alt="Description of Event 2" loading="lazy">
+                        <img src="images/pexels-sebastian-ervi-866902-1763075.jpg" alt="Description of Event 2"
+                            loading="lazy">
                         <span class="card-badge">HOT</span>
                     </div>
                     <div class="card-content">
@@ -126,7 +129,7 @@
 
                 <a href="#event3" class="event-card">
                     <div class="card-image-wrapper">
-                        <img src="images/img3.jpg" alt="Description of Event 3" loading="lazy">
+                        <img src="images/pexels-icsa-833425-1709003.jpg" alt="Description of Event 3" loading="lazy">
                         <span class="card-badge">NEW</span>
                     </div>
                     <div class="card-content">
@@ -213,20 +216,22 @@
 
     <div id="footer-placeholder"></div>
     <script src="js/load-components.js"></script>
+    <script src="js/index.js"></script>
 
-
-    <script>
+    <!-- <script>
 
         // our work
         const workImages = [
-            'https://picsum.photos/id/10/300/450',
-            'https://picsum.photos/id/20/300/400',
-            'https://picsum.photos/id/30/300/500',
-            'https://picsum.photos/id/40/300/420',
-            'https://picsum.photos/id/50/300/480',
-            'https://picsum.photos/id/60/300/350',
-            'https://picsum.photos/id/70/300/550',
-            'https://picsum.photos/id/80/300/430',
+            'images/medium-shot-people-event-with-food.jpg',
+            'images/pexels-asphotography-226737.jpg',
+            'images/pexels-bertellifotografia-19012046.jpg',
+            'images/pexels-asadphoto-169198.jpg',
+            'images/pexels-caleboquendo-34476062.jpg',
+            'images/pexels-nappy-3048347.jpg',
+            'images/pexels-wendywei-3159595.jpg',
+            'images/pexels-aleksmagnusson-2907677.jpg',
+            'images/pexels-caleboquendo-3143850.jpg',
+            'images/pexels-bertellifotografia-29486084.jpg',
         ];
 
         function setupWorkGallery() {
@@ -255,10 +260,10 @@
         // --- 1. Data Setup ---
         // List of image paths (relative to your index.html)
         const imagePaths = [
-            "images/img1.jpg", // Example: Music
-            "images/img2.jpg", // Example: Tech
-            "images/img3.jpg", // Example: Wedding
-            "images/img4.jpg"  // Example: Sports
+            "images/pexels-thibault-trillet-44912-167491.jpg", // Example: Music
+            "images/pexels-bertellifotografia-34774353.jpg", // Example: Tech
+            "images/celebration-hall-with-full-guests.jpg", // Example: Wedding
+            "images/desktop-wallpaper-football-sport-events-background.jpg"  // Example: Sports
         ];
         // List of corresponding dynamic text categories
         const categories = ["Music", "Tech", "Weddings", "Sports"];
@@ -304,27 +309,36 @@
         setInterval(swapContent, transitionTime);
 
 
-        // =======================================================
-        // --- STICKY HEADER TRANSITION ---
-        // =======================================================
+        // // =======================================================
+        // // --- STICKY HEADER TRANSITION ---
+        // // =======================================================
 
-        function handleScroll() {
-            if (heroSection) {
-                // We trigger the sticky header transition slightly before we exit the hero section
-                const scrollThreshold = heroSection.offsetHeight - 80;
+        // // This script assumes you are using the <header class="main-header"> structure
+        // function handleHeaderScroll() {
+        //     // Get the header element (assuming your component loader fetches it)
+        //     const header = document.querySelector('.main-header');
 
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-        }
+        //     // Get the section that sits underneath the transparent header (your Hero section)
+        //     const heroSection = document.getElementById('hero-slider');
 
-        // Attach the scroll listener
-        window.addEventListener('scroll', handleScroll);
+        //     // Safety check
+        //     if (!header || !heroSection) return;
 
-    </script>
+        //     // Determine the scroll distance to trigger the transition
+        //     // We trigger the sticky header when 80% of the hero section has been scrolled past
+        //     const scrollThreshold = heroSection.offsetHeight * 0.8;
+
+        //     if (window.scrollY > scrollThreshold) {
+        //         header.classList.add('scrolled'); // Adds the glassy light background/shadow
+        //     } else {
+        //         header.classList.remove('scrolled'); // Reverts to transparent white text
+        //     }
+        // }
+
+        // // Attach the listener once the DOM is ready
+        // window.addEventListener('scroll', handleHeaderScroll);
+
+    </script> -->
 
 </body>
 

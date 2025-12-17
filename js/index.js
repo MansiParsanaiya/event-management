@@ -1,142 +1,99 @@
-// js/index.js (CLEANED VERSION)
+/**
+ * index.js - Specific logic for the Home Page
+ * Handles: Hero Slider, Vertical Gallery, and Dynamic Scroll Header
+ */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    const mainHeader = document.querySelector('.main-header');
+    // Initialize all home-page specific features
+    initHeroSlider();
+    setupWorkGallery();
     
-    const transitionOffset = window.innerHeight * 0.85; 
-  
-    const headerHeight = mainHeader.offsetHeight;
-
-    const handleScroll = () => {
-        const scrollPosition = window.scrollY;
-
-        if (scrollPosition > transitionOffset) {
-            mainHeader.classList.add('scrolled');
-        } else {
-            mainHeader.classList.remove('scrolled');
-        }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    handleScroll(); 
-
-
-
-      // our work
-        const workImages = [
-            'https://picsum.photos/id/10/300/450',
-            'https://picsum.photos/id/20/300/400',
-            'https://picsum.photos/id/30/300/500',
-            'https://picsum.photos/id/40/300/420',
-            'https://picsum.photos/id/50/300/480',
-            'https://picsum.photos/id/60/300/350',
-            'https://picsum.photos/id/70/300/550',
-            'https://picsum.photos/id/80/300/430',
-        ];
-
-        function setupWorkGallery() {
-            const columns = document.querySelectorAll('.gallery__column');
-
-            columns.forEach((column, colIndex) => {
-                const track = column.querySelector('.column__track');
-
-                // Create a sequence of images (the loop content)
-                const imageSequenceHTML = workImages.map(url => `
-                <div class="gallery__image">
-                    <img src="${url}" alt="Gallery image">
-                </div>
-            `).join('');
-
-                // Duplication for seamless vertical loop (repeat 2-3 times)
-                track.innerHTML = imageSequenceHTML + imageSequenceHTML;
-            });
-        }
-
-        setupWorkGallery();
-
-
-        // hero section
-
-        // --- 1. Data Setup ---
-        // List of image paths (relative to your index.html)
-        const imagePaths = [
-            "images/img1.jpg", // Example: Music
-            "images/img2.jpg", // Example: Tech
-            "images/img3.jpg", // Example: Wedding
-            "images/img4.jpg"  // Example: Sports
-        ];
-        // List of corresponding dynamic text categories
-        const categories = ["Music", "Tech", "Weddings", "Sports"];
-
-        // --- 2. Element References ---
-        const dynamicCategoryElement = document.getElementById('dynamic-category');
-        const heroImageElement = document.querySelector('.hero-bg-img');
-        const header = document.querySelector('.main-header');
-        const heroSection = document.getElementById('hero-slider');
-
-        let currentIndex = 0;
-        const transitionTime = 4000; // Time each slide stays visible (4 seconds)
-
-
-        // --- 3. Core Swap Function ---
-
-        function swapContent() {
-            // A. Start Fade Out (Image & Text)
-            heroImageElement.classList.add('fade-out');
-            dynamicCategoryElement.style.opacity = 0;
-
-            setTimeout(() => {
-                // B. Change Content (after fade-out is complete)
-
-                // 1. Advance index
-                currentIndex = (currentIndex + 1) % imagePaths.length;
-
-                // 2. Change Image Source
-                heroImageElement.src = imagePaths[currentIndex];
-
-                // 3. Change Dynamic Text
-                dynamicCategoryElement.textContent = categories[currentIndex];
-
-                // C. Start Fade In
-                // Remove fade-out class immediately to let the CSS transition (1s) fade the new image in
-                heroImageElement.classList.remove('fade-out');
-                dynamicCategoryElement.style.opacity = 1;
-
-            }, 1000); // 1000ms delay matches the image transition time in CSS
-        }
-
-        // Start the continuous swap
-        setInterval(swapContent, transitionTime);
-
-
-        // =======================================================
-        // --- STICKY HEADER TRANSITION ---
-        // =======================================================
-
-        function handleScroll() {
-            if (heroSection) {
-                // We trigger the sticky header transition slightly before we exit the hero section
-                const scrollThreshold = heroSection.offsetHeight - 80;
-
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-        }
-
-        // Attach the scroll listener
-        window.addEventListener('scroll', handleScroll);
-
-
-
-
-
-
-
-
+    // Attach scroll listener for the transparent-to-solid header transition
+    window.addEventListener('scroll', handleHeaderScroll);
 });
 
+// --- 1. STICKY HEADER TRANSITION ---
+function handleHeaderScroll() {
+    const header = document.querySelector('.main-header');
+    const heroSection = document.getElementById('hero-slider');
+
+    if (!header || !heroSection) return;
+
+    // Trigger transition when 80% of the hero is scrolled past
+    const scrollThreshold = heroSection.offsetHeight * 0.8;
+
+    if (window.scrollY > scrollThreshold) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
+
+// --- 2. HERO SLIDER (Image & Text Swap) ---
+function initHeroSlider() {
+    const imagePaths = [
+        "images/pexels-thibault-trillet-44912-167491.jpg",
+        "images/pexels-bertellifotografia-34774353.jpg",
+        "images/celebration-hall-with-full-guests.jpg",
+        "images/desktop-wallpaper-football-sport-events-background.jpg"
+    ];
+    const categories = ["Music", "Tech", "Weddings", "Sports"];
+    
+    const dynamicCategoryElement = document.getElementById('dynamic-category');
+    const heroImageElement = document.querySelector('.hero-bg-img');
+    
+    if (!dynamicCategoryElement || !heroImageElement) return;
+
+    let currentIndex = 0;
+    const transitionTime = 4000; 
+
+    setInterval(() => {
+        // Start Fade Out
+        heroImageElement.classList.add('fade-out');
+        dynamicCategoryElement.style.opacity = 0;
+
+        setTimeout(() => {
+            // Swap Content
+            currentIndex = (currentIndex + 1) % imagePaths.length;
+            heroImageElement.src = imagePaths[currentIndex];
+            dynamicCategoryElement.textContent = categories[currentIndex];
+
+            // Start Fade In
+            heroImageElement.classList.remove('fade-out');
+            dynamicCategoryElement.style.opacity = 1;
+        }, 1000); // Wait for fade-out to finish
+    }, transitionTime);
+}
+
+// --- 3. OUR WORK GALLERY (Vertical Infinite Scroll) ---
+function setupWorkGallery() {
+    const workImages = [
+        'images/medium-shot-people-event-with-food.jpg',
+        'images/pexels-asphotography-226737.jpg',
+        'images/pexels-bertellifotografia-19012046.jpg',
+        'images/pexels-asadphoto-169198.jpg',
+        'images/pexels-caleboquendo-34476062.jpg',
+        'images/pexels-nappy-3048347.jpg',
+        'images/pexels-wendywei-3159595.jpg',
+        'images/pexels-aleksmagnusson-2907677.jpg',
+        'images/pexels-caleboquendo-3143850.jpg',
+        'images/pexels-bertellifotografia-29486084.jpg',
+    ];
+
+    const columns = document.querySelectorAll('.gallery__column');
+
+    columns.forEach((column) => {
+        const track = column.querySelector('.column__track');
+        if (!track) return;
+
+        // Generate HTML for images
+        const imageSequenceHTML = workImages.map(url => `
+            <div class="gallery__image">
+                <img src="${url}" alt="Gallery image" loading="lazy">
+            </div>
+        `).join('');
+
+        // Duplicate for seamless loop
+        track.innerHTML = imageSequenceHTML + imageSequenceHTML;
+    });
+}

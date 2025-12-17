@@ -4,7 +4,7 @@
     --accent-color: #2ecc71;
     --text-color: #495057;
     --light-bg: #ffffff;
-    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.5);
     --max-width: 1200px;
 }
 
@@ -40,6 +40,82 @@ a {
     text-decoration: none;
     transition: color 0.3s, opacity 0.3s;
     /* Global link transition */
+}
+
+/* ADD THESE TO YOUR GLOBAL style.css */
+
+/* --- Global Button System --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    color: white;
+}
+
+/* --- Global Event Card (Shared across Index and Upcoming) --- */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: inherit;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 10;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
 
 
@@ -301,4 +377,66 @@ footer {
     .social-icons a {
         margin: 0 10px;
     }
+}
+
+/* STICKY/SCROLLED STATE: Unified Glassy Light Theme */
+.main-header.scrolled {
+    /* * Ethereal Flow: Glassy Light Header 
+     * Subtle semi-transparency for a modern look 
+     */
+    background-color: rgba(255, 255, 255, 0.85); /* 85% opaque white */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.4s ease-out;
+
+    /* CRITICAL: Adds the modern "glass" effect */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Ensure the button is still slightly lifted/defined */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+}
+
+/* Color Reset for links when scrolled (Dark text on Light background) */
+.main-header.scrolled .logo a,
+.main-header.scrolled .main-nav ul li a {
+    color: var(--secondary-color);
+    text-shadow: none;
+}
+
+
+/* --- 3. DYNAMIC CONTENT GRID (For Event Cards) --- */
+
+.event-listing-grid {
+    display: grid;
+    /* Use grid for superior layout control */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    /* Adaptive: 320px minimum card width */
+    gap: 40px;
+    /* Generous spacing between cards */
+    padding: 60px 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Ensure your main content section has structure */
+section.events-section {
+    padding: 80px 20px;
+    margin-top: -100px; /* If your header section is very tall */
+}
+
+
+/* Accessibility Enhancement: Skip-to-content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px;
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }

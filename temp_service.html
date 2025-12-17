@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventPro | Our Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services.css">
+  
+    <style>
+        /* --- Services Page Creative Styles --- */
+
+        /* Force Header Style for Service Page */
+        .service-page .main-header {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+            position: sticky !important;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .service-page .main-header .logo,
+        .service-page .main-header nav a {
+            color: white !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #007bff, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 1. Hero with Glow Orbs */
+        .services-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+            z-index: 1;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #007bff;
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #2ecc71;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .services-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 2. Service Grid & Cards */
+        .service-grid-section {
+            padding: 100px 0;
+            background: #fcfcfc;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid #eee;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            border-color: #007bff;
+        }
+
+        /* Icon Size decreased as requested */
+        .icon-wrapper {
+            width: 60px;
+            /* Decreased from 70px */
+            height: 60px;
+            /* Decreased from 70px */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            /* Decreased from 2rem */
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Icon Colors */
+        .icon-blue {
+            background: #eef6ff;
+            color: #007bff;
+        }
+
+        .icon-green {
+            background: #e8f7ed;
+            color: #28a745;
+        }
+
+        .icon-orange {
+            background: #fff4e6;
+            color: #fd7e14;
+        }
+
+        .icon-red {
+            background: #fff0f0;
+            color: #dc3545;
+        }
+
+        .icon-purple {
+            background: #f3f0ff;
+            color: #6f42c1;
+        }
+
+        .icon-teal {
+            background: #e6fcf5;
+            color: #20c997;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            font-weight: 700;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            text-decoration: none;
+        }
+
+        /* 3. CTA Glass Card */
+        .cta-section {
+            padding: 100px 0;
+        }
+
+        .cta-glass-card {
+            background: rgba(44, 62, 80, 0.95);
+            padding: 80px 40px;
+            border-radius: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-glass-card h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-glass-card p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-primary-creative {
+            background: #2ecc71;
+            color: #2c3e50;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary-creative:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        /* 4. Animations */
+        .reveal,
+        .reveal-up {
+            opacity: 0;
+            transition: all 1s ease-out;
+        }
+
+        .reveal {
+            transform: translateY(30px);
+        }
+
+        .reveal-up {
+            transform: translateY(60px);
+        }
+
+        .reveal.active,
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-glass-card h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="service-page">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="services-hero">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="container reveal">
+                <h1>What We <span class="text-gradient">Offer</span></h1>
+                <p class="hero-subtitle">From initial concept to final execution, EventPro is your dedicated partner for
+                    flawless, memorable events.</p>
+            </div>
+        </section>
+
+        <section class="service-grid-section">
+            <div class="container">
+                <h2 class="section-heading reveal">Our Core Event Services</h2>
+
+                <div class="service-grid">
+                    <article class="service-card reveal-up">
+                        <div class="icon-wrapper icon-blue">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3>End-to-End Planning</h3>
+                        <p>We manage all logistics: vendor coordination, budget tracking, and risk assessment.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+
+                    <article class="service-card reveal-up" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper icon-green">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3>Venue & Site Selection</h3>
+                        <p>Access to an exclusive global database of premier venues tailored to your event size.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+
+                    <article class="service-card reveal-up" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper icon-orange">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3>Creative Design</h3>
+                        <p>Bespoke visual concepts, stage design, and lighting to create a unique atmosphere.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+
+                    <article class="service-card reveal-up" style="transition-delay: 0.3s;">
+                        <div class="icon-wrapper icon-red">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <h3>Technical Production</h3>
+                        <p>High-end audio, video, and streaming solutions for a technically perfect show.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+
+                    <article class="service-card reveal-up" style="transition-delay: 0.4s;">
+                        <div class="icon-wrapper icon-purple">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3>Event Marketing</h3>
+                        <p>Full guest registration, ticketing setup, and digital marketing support for reach.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+
+                    <article class="service-card reveal-up" style="transition-delay: 0.5s;">
+                        <div class="icon-wrapper icon-teal">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3>On-Site Management</h3>
+                        <p>Professional staffing, security, and concierge services for a smooth event flow.</p>
+                        <a href="#" class="service-link">Explore Service <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-glass-card reveal">
+                    <h2>Ready to Create Something Iconic?</h2>
+                    <p>Contact us today for a free consultation and personalized proposal.</p>
+                    <a href="booking.html" class="btn-primary-creative">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/load-components.js"></script>
+    <script>
+        /**
+ * services.js - Creative Animations for Service Page
+ */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealOnScroll = () => {
+                const reveals = document.querySelectorAll(".reveal, .reveal-up");
+                const windowHeight = window.innerHeight;
+
+                reveals.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const revealPoint = 100; // Trigger when element is 100px from bottom
+
+                    if (elementTop < windowHeight - revealPoint) {
+                        el.classList.add("active");
+                    }
+                });
+            };
+
+            // Initial check on load
+            revealOnScroll();
+
+            // Check on scroll
+            window.addEventListener("scroll", revealOnScroll);
+        });
+    </script>
+</body>
+
+</html>
