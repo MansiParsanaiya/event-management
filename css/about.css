@@ -1,198 +1,215 @@
-    :root {
-        --primary: #007bff;
-        --secondary: #2c3e50;
-        --accent: #2ecc71;
-        --glass: rgba(255, 255, 255, 0.8);
-    }
+:root {
+    --primary: #007bff;
+    /* --secondary: #2c3e50; */
+    --accent: #2ecc71;
+    --glass: rgba(255, 255, 255, 0.8);
+    --secondary: #2c3e50;
+}
 
-    /* --- HEADER CUSTOMIZATION (TARGETING LOADED HEADER) --- */
-    .about-page .main-header {
-        background-color: white !important;
-        /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important; */
-        position: sticky !important;
-        top: 0;
-    }
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: var(--secondary-color);
+    /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
+}
 
-    .about-page .main-header nav a {
-        color: var(--secondary) !important;
-    }
 
-    /* Specific styling for the last nav item to act as a button */
-    .about-page .main-header nav a:last-child {
-        /* background: var(--primary); */
+/* --- HERO SECTION --- */
+.about-hero {
+    position: relative;
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(135deg, #f1f7fe 0%, #ffffff 100%);
+    overflow: hidden;
+}
+.hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+}
 
-        color: white !important;
-        /* padding: 10px 20px; */
-        border-radius: 5px;
-        /* margin-left: 20px; */
-    }
 
-    /* --- HERO SECTION --- */
-    .about-hero {
-        position: relative;
-        padding: 100px 5%;
-        text-align: center;
-        background: linear-gradient(135deg, #f1f7fe 0%, #ffffff 100%);
-        overflow: hidden;
-    }
+.text-gradient {
+    background: linear-gradient(
+        120deg,
+        var(--primary),
+        var(--accent),
+        #6ae3ff
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite;
+    text-shadow: 0 0 18px rgba(0, 174, 255, 0.25);
+    font-weight: 900;
+}
 
-    .text-gradient {
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-    .floating-shape {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        opacity: 0.2;
-        z-index: 1;
-    }
+.subtitle{
+    font-weight: 700;
+    font-size: 25px;
+}
 
-    .shape-1 {
-        width: 300px;
-        height: 300px;
-        background: var(--primary);
-        top: -50px;
-        left: -50px;
-    }
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.2;
+    z-index: 1;
+}
 
-    .shape-2 {
-        width: 200px;
-        height: 200px;
-        background: var(--accent);
-        bottom: 50px;
-        right: -50px;
-    }
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    top: -50px;
+    left: -50px;
+}
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-    }
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--accent);
+    bottom: 50px;
+    right: -50px;
+}
 
-    /* --- STATS --- */
-    .stats-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 50px;
-        flex-wrap: wrap;
-    }
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
-    .stat-card {
-        background: var(--glass);
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px);
-        min-width: 180px;
-    }
+/* --- STATS --- */
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
 
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: var(--primary);
-    }
+.stat-card {
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    min-width: 180px;
+}
 
-    /* --- NARRATIVE SECTION (STORY) --- */
-    .narrative-section {
-        padding: 80px 5%;
-    }
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
 
-    .content-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+/* --- NARRATIVE SECTION (STORY) --- */
+.narrative-section {
+    padding: 80px 5%;
+}
 
-    .story-img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: var(--secondary);
-    }
+.story-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
 
-    .narrative-text p {
-        margin-bottom: 20px;
-        line-height: 1.6;
-        color: #555;
-    }
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
 
-    /* --- TEAM SECTION --- */
-    .team-section {
-        padding: 80px 5%;
-        background: #f9f9f9;
-        text-align: center;
-    }
+.narrative-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
 
-    .section-center-title {
-        font-size: 2.5rem;
-        margin-bottom: 50px;
-    }
+/* --- TEAM SECTION --- */
+.team-section {
+    padding: 80px 5%;
+    background: #f9f9f9;
+    text-align: center;
+}
 
-    .team-grid {
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+.section-center-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
 
-    .team-card {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        width: 300px;
-        transition: 0.3s;
-    }
+.team-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    .team-card:hover {
-        transform: translateY(-10px);
-    }
+.team-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 300px;
+    transition: 0.3s;
+}
 
-    .team-img-container img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-    }
+.team-card:hover {
+    transform: translateY(-10px);
+}
 
-    .role {
-        color: var(--primary);
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
+.team-img-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
 
-    /* --- ANIMATION CLASSES --- */
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: 1s all ease;
-    }
+.role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
 
-    .reveal-left {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: 1s all ease;
-    }
+/* --- ANIMATION CLASSES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s all ease;
+}
 
-    .reveal-right {
-        opacity: 0;
-        transform: translateX(50px);
-        transition: 1s all ease;
-    }
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 1s all ease;
+}
 
-    .active {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: 1s all ease;
+}
+
+.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}

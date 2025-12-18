@@ -1,14 +1,23 @@
-.service-page .main-header {
-    background-color: white !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-    position: sticky !important;
-    top: 0;
-    z-index: 1000;
+:root {
+    --primary: #007bff;
+    /* --secondary: #2c3e50; */
+    --accent: #2ecc71;
+    /* --glass: rgba(255, 255, 255, 0.8); */
+    /* --secondary: #2c3e50; */
 }
 
-.service-page .main-header .logo,
-.service-page .main-header nav a {
-    color: white !important;
+
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: var(--secondary-color);
+    /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 .container {
@@ -17,11 +26,14 @@
     padding: 0 20px;
 }
 
-.text-gradient {
-    background: linear-gradient(90deg, #007bff, #2ecc71);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* 
+    .text-gradient2 {
+        background: linear-gradient(90deg, #007bff, #2ecc71);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    } */
+
+
 
 /* 1. Hero with Glow Orbs */
 .services-hero {
@@ -252,4 +264,74 @@
     .cta-glass-card h2 {
         font-size: 2rem;
     }
+}
+
+
+
+/* ===== Services Hero Heading Enhancement ===== */
+.services-hero h1 {
+    /* font-size: 4.2rem; */
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    color: var(--secondary-color);
+}
+
+/* Gradient glow ONLY for highlighted word */
+
+.text-gradient {
+    background: linear-gradient(120deg,
+            var(--primary),
+            var(--accent),
+            #6ae3ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite;
+    text-shadow: 0 0 18px rgba(0, 174, 255, 0.25);
+    font-weight: 900;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Subtle glow behind gradient text */
+.services-hero .text-gradient {
+
+    filter: drop-shadow(0 6px 20px rgba(0, 123, 255, 0.25));
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-subtitle {
+    /* font-size: 1.35rem; */
+    color: #555;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    opacity: 0.95;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.hero-subtitle {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }

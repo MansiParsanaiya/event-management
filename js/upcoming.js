@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function showLocationMessage(city, state) {
     locationBar.innerHTML = `
         <i class="fa-solid fa-map-pin"></i>
-        <strong>Location Alert:</strong> We see you are near <strong>${city}, ${state}</strong>! 
-        Check out our upcoming <strong>${city} Tech Summit</strong> next month!
+        <strong>Location Alert: </strong> &nbsp; We see you are near &nbsp;<strong> ${city}, ${state}</strong>! 
+        Check out our upcoming &nbsp;<strong> ${city} Tech Summit&nbsp;</strong> next month!
     `;
     locationBar.style.display = 'flex';
 }

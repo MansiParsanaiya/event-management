@@ -331,7 +331,7 @@ main {
     text-align: center;
     font-size: 2.8em;
     margin: 0 0 40px;
-    color: var(--primary-color);
+    color: #2c3e50;
 }
 
 .photo-grid {
@@ -447,4 +447,12 @@ main {
     .photo-grid { grid-template-columns: 1fr; grid-auto-rows: 300px; }
     .item-wide { grid-column: auto; }
     .gallery-hero h1 { font-size: 2.5em; }
+}
+
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: var(--secondary-color);
+    /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
 }

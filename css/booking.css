@@ -6,6 +6,15 @@
     --primary-gradient: linear-gradient(90deg, #007bff, #00d4ff);
 }
 
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: var(--secondary-color);
+    /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
+}
+
+
 .booking-page {
     min-height: 100vh;
     display: flex;
@@ -65,6 +74,7 @@
     border-radius: 40px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    margin-top: 80px;
 }
 
 /* --- THEME ELEMENT: Tech Gradient Text --- */

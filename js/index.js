@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize all home-page specific features
     initHeroSlider();
     setupWorkGallery();
-    
+
     // Attach scroll listener for the transparent-to-solid header transition
     window.addEventListener('scroll', handleHeaderScroll);
 });
@@ -38,14 +38,14 @@ function initHeroSlider() {
         "images/desktop-wallpaper-football-sport-events-background.jpg"
     ];
     const categories = ["Music", "Tech", "Weddings", "Sports"];
-    
+
     const dynamicCategoryElement = document.getElementById('dynamic-category');
     const heroImageElement = document.querySelector('.hero-bg-img');
-    
+
     if (!dynamicCategoryElement || !heroImageElement) return;
 
     let currentIndex = 0;
-    const transitionTime = 4000; 
+    const transitionTime = 4000;
 
     setInterval(() => {
         // Start Fade Out
@@ -67,33 +67,40 @@ function initHeroSlider() {
 
 // --- 3. OUR WORK GALLERY (Vertical Infinite Scroll) ---
 function setupWorkGallery() {
-    const workImages = [
-        'images/medium-shot-people-event-with-food.jpg',
-        'images/pexels-asphotography-226737.jpg',
-        'images/pexels-bertellifotografia-19012046.jpg',
-        'images/pexels-asadphoto-169198.jpg',
-        'images/pexels-caleboquendo-34476062.jpg',
-        'images/pexels-nappy-3048347.jpg',
-        'images/pexels-wendywei-3159595.jpg',
-        'images/pexels-aleksmagnusson-2907677.jpg',
-        'images/pexels-caleboquendo-3143850.jpg',
-        'images/pexels-bertellifotografia-29486084.jpg',
+    const workImagesByColumn = [
+        [
+            'images/medium-shot-people-event-with-food.jpg',
+            'images/pexels-asphotography-226737.jpg',
+            'images/pexels-bertellifotografia-19012046.jpg',
+            'images/pexels-asadphoto-169198.jpg',
+        ],
+        [
+            'images/pexels-caleboquendo-34476062.jpg',
+            'images/pexels-nappy-3048347.jpg',
+            'images/pexels-wendywei-3159595.jpg',
+        ],
+        [
+            'images/pexels-aleksmagnusson-2907677.jpg',
+            'images/pexels-caleboquendo-3143850.jpg',
+            'images/pexels-bertellifotografia-29486084.jpg',
+        ]
     ];
 
     const columns = document.querySelectorAll('.gallery__column');
 
-    columns.forEach((column) => {
+    columns.forEach((column, index) => {
         const track = column.querySelector('.column__track');
         if (!track) return;
 
-        // Generate HTML for images
-        const imageSequenceHTML = workImages.map(url => `
+        const images = workImagesByColumn[index] || [];
+
+        const imageHTML = images.map(url => `
             <div class="gallery__image">
                 <img src="${url}" alt="Gallery image" loading="lazy">
             </div>
         `).join('');
 
-        // Duplicate for seamless loop
-        track.innerHTML = imageSequenceHTML + imageSequenceHTML;
+        // duplicate for infinite scroll
+        track.innerHTML = imageHTML + imageHTML;
     });
 }

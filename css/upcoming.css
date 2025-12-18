@@ -1,6 +1,15 @@
 /* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
 /* --- THEME UPGRADE: Glassmorphism & Orbs --- */
 
+.main-header .logo a,
+.main-header .main-nav ul li a {
+    color: var(--secondary-color);
+    /* Initial white text for contrast on the dark slider image */
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
+}
+
+
 /* 1. Moving Background Orbs */
 .glow-orb {
     position: absolute;
