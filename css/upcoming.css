@@ -1,4 +1,75 @@
 /* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
+/* --- THEME UPGRADE: Glassmorphism & Orbs --- */
+
+/* 1. Moving Background Orbs */
+.glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0; /* Stays behind everything */
+    pointer-events: none;
+    animation: orbit 25s infinite alternate ease-in-out;
+}
+.orb-v1 { background: var(--primary-color); top: -100px; left: -100px; }
+.orb-v2 { background: var(--accent-color); top: 40%; right: -200px; animation-delay: -5s; }
+.orb-v3 { background: var(--primary-color); bottom: -100px; left: 30%; animation-delay: -10s; }
+
+@keyframes orbit {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 50px) scale(1.2); }
+}
+
+/* 2. Hero Section Transparency */
+.events-hero {
+    background: transparent !important; /* Remove the solid light blue */
+    border-bottom: none !important;
+    position: relative;
+    z-index: 2;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 3. The Filter Tabs "Glass Pill" */
+.filter-tabs {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: inline-flex !important; /* Center the pill */
+    margin: 0 auto 40px auto;
+}
+
+/* 4. The Event Card "Glass Upgrade" */
+.event-card {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-left: 8px solid var(--accent-color) !important; /* Keep your signature border */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 5. Date Box Modernization */
+.event-date-box {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border-radius: 0 20px 20px 0; /* Curvy inner edge */
+}
+
+/* 6. Location Bar Glass Effect */
+.location-bar {
+    background: rgba(212, 237, 218, 0.6) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
 
 /* 1. Events Hero */
 .events-hero {
@@ -75,21 +146,6 @@
     padding: 0 20px;
 }
 
-/* Base Card Style (Flexbox for internal structure) */
-.event-card {
-    display: flex;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, opacity 0.4s;
-    border-left: 8px solid var(--accent-color); /* Strong accent border */
-}
-
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
 
 /* Event Date Box (Left side of card) */
 .event-date-box {

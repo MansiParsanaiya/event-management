@@ -37,59 +37,104 @@
 
         <section class="category-icons">
             <h2>Popular Event Categories</h2>
-            <div class="category-grid">
+            <div class="category-flex-container">
+
+                <a href="upcoming.html?cat=nye" class="category-card">
+                    <div class="icon-wrapper">
+                        <span class="badge-new">New</span>
+                        <!-- use svg from https://www.svgrepo.com/vectors/disco/ -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <path d="M9 16l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <span>NYE</span>
+                </a>
 
                 <a href="upcoming.html?cat=music" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-microphone-lines"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
                     </div>
                     <span>Music</span>
                 </a>
 
                 <a href="upcoming.html?cat=nightlife" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-disco-ball"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"></path>
+                        </svg>
                     </div>
                     <span>Nightlife</span>
                 </a>
 
                 <a href="upcoming.html?cat=arts" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-masks-theater"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                            <path d="M12 12L2.7 16.15"></path>
+                        </svg>
                     </div>
-                    <span>Performing & Visual Arts</span>
+                    <span>Performing Arts</span>
                 </a>
 
                 <a href="upcoming.html?cat=dating" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-comment-dots"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <path d="M12 7c0 2-3 3-3 3s3 1 3 3"></path>
+                        </svg>
                     </div>
                     <span>Dating</span>
                 </a>
 
                 <a href="upcoming.html?cat=hobbies" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-gamepad"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <line x1="6" y1="12" x2="10" y2="12"></line>
+                            <line x1="8" y1="10" x2="8" y2="14"></line>
+                            <circle cx="17" cy="13" r="1"></circle>
+                            <circle cx="19" cy="11" r="1"></circle>
+                            <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                        </svg>
                     </div>
                     <span>Hobbies</span>
                 </a>
 
                 <a href="upcoming.html?cat=business" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-chalkboard"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
                     </div>
                     <span>Business</span>
                 </a>
 
                 <a href="upcoming.html?cat=food" class="category-card">
                     <div class="icon-wrapper">
-                        <i class="fa-solid fa-cocktail"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
                     </div>
                     <span>Food & Drink</span>
                 </a>
 
             </div>
         </section>
+
 
         <section class="featured-events">
             <h2>Upcoming Featured Events</h2>
@@ -217,129 +262,7 @@
     <div id="footer-placeholder"></div>
     <script src="js/load-components.js"></script>
     <script src="js/index.js"></script>
-
-    <!-- <script>
-
-        // our work
-        const workImages = [
-            'images/medium-shot-people-event-with-food.jpg',
-            'images/pexels-asphotography-226737.jpg',
-            'images/pexels-bertellifotografia-19012046.jpg',
-            'images/pexels-asadphoto-169198.jpg',
-            'images/pexels-caleboquendo-34476062.jpg',
-            'images/pexels-nappy-3048347.jpg',
-            'images/pexels-wendywei-3159595.jpg',
-            'images/pexels-aleksmagnusson-2907677.jpg',
-            'images/pexels-caleboquendo-3143850.jpg',
-            'images/pexels-bertellifotografia-29486084.jpg',
-        ];
-
-        function setupWorkGallery() {
-            const columns = document.querySelectorAll('.gallery__column');
-
-            columns.forEach((column, colIndex) => {
-                const track = column.querySelector('.column__track');
-
-                // Create a sequence of images (the loop content)
-                const imageSequenceHTML = workImages.map(url => `
-                <div class="gallery__image">
-                    <img src="${url}" alt="Gallery image">
-                </div>
-            `).join('');
-
-                // Duplication for seamless vertical loop (repeat 2-3 times)
-                track.innerHTML = imageSequenceHTML + imageSequenceHTML;
-            });
-        }
-
-        setupWorkGallery();
-
-
-        // hero section
-
-        // --- 1. Data Setup ---
-        // List of image paths (relative to your index.html)
-        const imagePaths = [
-            "images/pexels-thibault-trillet-44912-167491.jpg", // Example: Music
-            "images/pexels-bertellifotografia-34774353.jpg", // Example: Tech
-            "images/celebration-hall-with-full-guests.jpg", // Example: Wedding
-            "images/desktop-wallpaper-football-sport-events-background.jpg"  // Example: Sports
-        ];
-        // List of corresponding dynamic text categories
-        const categories = ["Music", "Tech", "Weddings", "Sports"];
-
-        // --- 2. Element References ---
-        const dynamicCategoryElement = document.getElementById('dynamic-category');
-        const heroImageElement = document.querySelector('.hero-bg-img');
-        const header = document.querySelector('.main-header');
-        const heroSection = document.getElementById('hero-slider');
-
-        let currentIndex = 0;
-        const transitionTime = 4000; // Time each slide stays visible (4 seconds)
-
-
-        // --- 3. Core Swap Function ---
-
-        function swapContent() {
-            // A. Start Fade Out (Image & Text)
-            heroImageElement.classList.add('fade-out');
-            dynamicCategoryElement.style.opacity = 0;
-
-            setTimeout(() => {
-                // B. Change Content (after fade-out is complete)
-
-                // 1. Advance index
-                currentIndex = (currentIndex + 1) % imagePaths.length;
-
-                // 2. Change Image Source
-                heroImageElement.src = imagePaths[currentIndex];
-
-                // 3. Change Dynamic Text
-                dynamicCategoryElement.textContent = categories[currentIndex];
-
-                // C. Start Fade In
-                // Remove fade-out class immediately to let the CSS transition (1s) fade the new image in
-                heroImageElement.classList.remove('fade-out');
-                dynamicCategoryElement.style.opacity = 1;
-
-            }, 1000); // 1000ms delay matches the image transition time in CSS
-        }
-
-        // Start the continuous swap
-        setInterval(swapContent, transitionTime);
-
-
-        // // =======================================================
-        // // --- STICKY HEADER TRANSITION ---
-        // // =======================================================
-
-        // // This script assumes you are using the <header class="main-header"> structure
-        // function handleHeaderScroll() {
-        //     // Get the header element (assuming your component loader fetches it)
-        //     const header = document.querySelector('.main-header');
-
-        //     // Get the section that sits underneath the transparent header (your Hero section)
-        //     const heroSection = document.getElementById('hero-slider');
-
-        //     // Safety check
-        //     if (!header || !heroSection) return;
-
-        //     // Determine the scroll distance to trigger the transition
-        //     // We trigger the sticky header when 80% of the hero section has been scrolled past
-        //     const scrollThreshold = heroSection.offsetHeight * 0.8;
-
-        //     if (window.scrollY > scrollThreshold) {
-        //         header.classList.add('scrolled'); // Adds the glassy light background/shadow
-        //     } else {
-        //         header.classList.remove('scrolled'); // Reverts to transparent white text
-        //     }
-        // }
-
-        // // Attach the listener once the DOM is ready
-        // window.addEventListener('scroll', handleHeaderScroll);
-
-    </script> -->
-
+    
 </body>
 
 </html>

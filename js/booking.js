@@ -1,41 +1,29 @@
-// js/booking.js
+   document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('newBookingForm');
+            const card = document.querySelector('.booking-card');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const detailsTextarea = document.getElementById('event-details');
-    const charCountDisplay = document.getElementById('char-count');
-    const maxLength = 500;
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
 
-    detailsTextarea.addEventListener('input', function() {
-        const currentLength = detailsTextarea.value.length;
-        const remaining = maxLength - currentLength;
+                // Feedback state
+                const btn = form.querySelector('button');
+                btn.innerHTML = 'Processing... <i class="fa-solid fa-circle-notch fa-spin"></i>';
+                btn.style.pointerEvents = 'none';
 
-        charCountDisplay.textContent = `${currentLength} / ${maxLength} characters used`;
-
-        if (currentLength > maxLength) {
-            // Optional: Limit input if browser doesn't handle maxlength gracefully
-            detailsTextarea.value = detailsTextarea.value.substring(0, maxLength);
-            charCountDisplay.style.color = 'red';
-        } else if (remaining <= 50) {
-            // Warn user when close to limit
-            charCountDisplay.style.color = 'orange';
-        } else {
-            charCountDisplay.style.color = '#6c757d'; // Default color
-        }
-    });
-
-    // --- Task B: Date Blocking Logic (Next) ---
-    const dateInput = document.getElementById('event-date');
-    if (dateInput) {
-        // Get today's date in YYYY-MM-DD format
-        const today = new Date();
-        const year = today.getFullYear();
-        // Month and day must be two digits
-        const month = String(today.getMonth() + 1).padStart(2, '0'); 
-        const day = String(today.getDate()).padStart(2, '0');
-        
-        const minDate = `${year}-${month}-${day}`;
-        
-        // Set the min attribute on the date input
-        dateInput.setAttribute('min', minDate);
-    }
-});
+                setTimeout(() => {
+                    // Modern Success Transformation
+                    card.innerHTML = `
+                        <div class="success-content">
+                            <div style="font-size: 5rem; color: #00d4ff; margin-bottom: 20px;">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Request Sent!</h2>
+                            <p style="color: #555; font-size: 1.1rem;">Check your inbox. Our lead planner will reach out shortly.</p>
+                            <button onclick="location.reload()" class="submit-glow" style="max-width: 250px; margin: 30px auto 0;">
+                                Back to Form
+                            </button>
+                        </div>
+                    `;
+                }, 1800);
+            });
+        });

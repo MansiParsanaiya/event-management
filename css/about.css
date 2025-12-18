@@ -1,340 +1,198 @@
-/* =================================================================== */
-/* --- Dedicated About Page Styles (css/about.css) --- */
-/* =================================================================== */
+    :root {
+        --primary: #007bff;
+        --secondary: #2c3e50;
+        --accent: #2ecc71;
+        --glass: rgba(255, 255, 255, 0.8);
+    }
 
-/* --- General Layout & Re-use --- */
-/* Ensure your container/wrapper classes use the same max-width as global style.css */
-.container, .hero-content-wrapper, .mission-values .container, 
-.team-grid, .final-cta-bar .section-container {
-    max-width: var(--max-width, 1200px);
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    /* --- HEADER CUSTOMIZATION (TARGETING LOADED HEADER) --- */
+    .about-page .main-header {
+        background-color: white !important;
+        /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important; */
+        position: sticky !important;
+        top: 0;
+    }
 
-/* ------------------------------------------------------------------- */
-/* 1. ABOUT HERO SECTION (Existing + Impact Stats) */
-/* ------------------------------------------------------------------- */
-.about-hero {
-    background-color: #f1f7fe; /* Light blue background for contrast */
-    padding: 100px 0 60px;
-    text-align: center; /* Center everything in the new Hero */
-    border-bottom-left-radius: 50px; 
-    border-bottom-right-radius: 50px;
-}
+    .about-page .main-header nav a {
+        color: var(--secondary) !important;
+    }
 
-.hero-text-block {
-    max-width: 800px;
-    margin: 0 auto 50px;
-}
+    /* Specific styling for the last nav item to act as a button */
+    .about-page .main-header nav a:last-child {
+        /* background: var(--primary); */
 
-.about-hero h1 {
-    font-size: 4em; /* Increased size for impact */
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--secondary-color);
-}
+        color: white !important;
+        /* padding: 10px 20px; */
+        border-radius: 5px;
+        /* margin-left: 20px; */
+    }
 
-.about-hero h1 strong {
-    color: var(--primary-color);
-}
+    /* --- HERO SECTION --- */
+    .about-hero {
+        position: relative;
+        padding: 100px 5%;
+        text-align: center;
+        background: linear-gradient(135deg, #f1f7fe 0%, #ffffff 100%);
+        overflow: hidden;
+    }
 
-.subtitle {
-    font-size: 1.4em;
-    color: var(--text-color);
-    margin-bottom: 40px;
-}
+    .text-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-/* --- STATS GRID (New Section) --- */
-.stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 50px;
-    border-top: 1px solid rgba(0, 123, 255, 0.2);
-}
+    .floating-shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.2;
+        z-index: 1;
+    }
 
-.stat-card {
-    text-align: center;
-    flex: 1;
-}
+    .shape-1 {
+        width: 300px;
+        height: 300px;
+        background: var(--primary);
+        top: -50px;
+        left: -50px;
+    }
 
-.stat-number {
-    display: block;
-    font-size: 3.5em;
-    font-weight: 900;
-    color: var(--accent-color); 
-    line-height: 1;
-    margin-bottom: 5px;
-}
+    .shape-2 {
+        width: 200px;
+        height: 200px;
+        background: var(--accent);
+        bottom: 50px;
+        right: -50px;
+    }
 
-.stat-label {
-    font-size: 1.1em;
-    color: var(--secondary-color);
-    font-weight: 600;
-}
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
 
-
-/* ------------------------------------------------------------------- */
-/* 2. OUR STORY & HISTORY SECTION (Narrative) */
-/* ------------------------------------------------------------------- */
-.narrative-section {
-    margin: 20px;
-    padding: 100px 0;
-}
-
-.narrative-section .content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    text-align: left;
-}
-
-.narrative-image {
-    flex: 1;
-    min-width: 45%;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.story-image {
-    margin-left: 10px;
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.narrative-image:hover .story-image {
-    transform: scale(1.03);
-}
-
-.narrative-text {
-    flex: 1.2;
-}
-
-.narrative-text h2 {
-    font-size: 3em;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-}
-
-.narrative-text p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
-/* ------------------------------------------------------------------- */
-/* 3. MISSION AND CORE VALUES (Dual Column) */
-/* This section replaces your original section 2 styles */
-/* ------------------------------------------------------------------- */
-.mission-values {
-    margin: 20px;
-    background-color: #ffffff;
-    padding: 80px 0;
-    border-top: 1px solid #eee;
-}
-
-.mission-values .section-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.mission-block, .values-block {
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-    background: #fcfcfc;
-    border: 1px solid #e9ecef;
-}
-
-.mission-icon, .values-icon {
-    font-size: 2.5em;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.mission-block h2, .values-block h2 {
-    font-size: 2em;
-    margin-bottom: 15px;
-    color: var(--secondary-color);
-}
-
-.value-list {
-    list-style: none;
-    padding: 0;
-}
-
-.value-list li {
-    font-size: 1.1em;
-    line-height: 2;
-    padding-left: 1.5em;
-    position: relative;
-}
-
-.value-list li::before {
-    content: "\f00c"; /* Checkmark icon */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-
-
-/* ------------------------------------------------------------------- */
-/* 4. TEAM SECTION (Using your original styles, but cleaned up) */
-/* ------------------------------------------------------------------- */
-.team-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.team-section h2 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-.team-subtitle {
-    font-size: 1.2em;
-    color: #6c757d;
-    margin-bottom: 50px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-}
-
-.team-member { /* Renamed from .team-card in your original, mapping to new HTML */
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.team-member:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.team-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 5px solid #e9ecef;
-}
-
-.team-member h3 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.team-role {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin: 5px 0 15px;
-    font-size: 1.1em;
-}
-
-.social-link i {
-    font-size: 1.5em;
-    color: var(--secondary-color);
-    transition: color 0.3s;
-}
-
-.social-link i:hover {
-    color: var(--primary-color);
-}
-
-
-/* ------------------------------------------------------------------- */
-/* 5. FINAL CTA BAR (Directing users) */
-/* ------------------------------------------------------------------- */
-
-.final-cta-bar {
-    padding: 80px 20px;
-    background-color: #f1f7fe; 
-}
-
-.final-cta-bar .section-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-}
-
-.cta-card {
-    padding: 40px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    background: white;
-}
-
-.cta-card h3 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.cta-card p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-}
-
-
-/* ------------------------------------------------------------------- */
-/* --- MEDIA QUERIES (Responsiveness) --- */
-/* ------------------------------------------------------------------- */
-
-@media (max-width: 992px) {
-    /* HERO SECTION */
+    /* --- STATS --- */
     .stats-grid {
-        flex-direction: column;
-        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 50px;
+        flex-wrap: wrap;
     }
+
+    .stat-card {
+        background: var(--glass);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(10px);
+        min-width: 180px;
+    }
+
     .stat-number {
-        font-size: 3em;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary);
     }
-    
-    /* NARRATIVE SECTION */
-    .narrative-section .content-wrapper {
-        flex-direction: column;
+
+    /* --- NARRATIVE SECTION (STORY) --- */
+    .narrative-section {
+        padding: 80px 5%;
+    }
+
+    .content-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .story-img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--secondary);
+    }
+
+    .narrative-text p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* --- TEAM SECTION --- */
+    .team-section {
+        padding: 80px 5%;
+        background: #f9f9f9;
         text-align: center;
     }
-    .narrative-image {
-        min-width: 100%;
-    }
-    .narrative-text h2 {
-        margin-top: 30px;
+
+    .section-center-title {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
     }
 
-    /* MISSION/VALUES & CTA */
-    .mission-values .section-container,
-    .final-cta-bar .section-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .about-hero h1 {
-        font-size: 2.5em;
-    }
-    .subtitle {
-        font-size: 1.2em;
-    }
     .team-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
-}
+
+    .team-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        width: 300px;
+        transition: 0.3s;
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .team-img-container img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .role {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    /* --- ANIMATION CLASSES --- */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 1s all ease;
+    }
+
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: 1s all ease;
+    }
+
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: 1s all ease;
+    }
+
+    .active {
+        opacity: 1;
+        transform: translate(0, 0);
+    }

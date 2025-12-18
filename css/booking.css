@@ -1,180 +1,208 @@
-/* --- Booking Page Layout --- */
-
-.booking-container
-.booking-hero {
-    background: #f1f7fe; /* Light blue background */
-    text-align: center;
-    padding: 60px 20px;
-    border-bottom: 2px solid var(--primary-color);
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
+    --primary-gradient: linear-gradient(90deg, #007bff, #00d4ff);
 }
 
-.booking-hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.booking-hero p {
-    font-size: 1.2em;
-    color: var(--secondary-color);
-}
-
-/* Two-Column Layout (Dribbble/Modern Style) */
-.booking-container {
-    max-width: 1100px;
-    margin: 50px auto;
+.booking-page {
+    min-height: 100vh;
     display: flex;
-    gap: 40px;
-    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.form-wrapper {
-    flex: 2; /* Form takes up more space */
-    background: var(--light-bg);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+/* --- THEME ELEMENT: Moving Glow Orbs --- */
+.glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 1;
+    animation: float 20s infinite alternate;
 }
 
-.visual-callout {
-    flex: 1; /* Visual takes up less space */
-    background: #e8f3ff; /* Very light blue background */
-    padding: 30px;
-    border-radius: 15px;
+.orb-1 {
+    background: #007bff;
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    background: #00d4ff;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(100px, 100px) scale(1.1);
+    }
+}
+
+/* --- THEME ELEMENT: Glassmorphism Card --- */
+.booking-card {
+    position: relative;
+    z-index: 10;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    width: 100%;
+    max-width: 850px;
+    padding: 60px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* --- THEME ELEMENT: Tech Gradient Text --- */
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.card-header {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 2.8rem;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.card-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* Clean Input Grid (Prevents Overlap) */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.input-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: sticky;
-    top: 20px; /* Makes it stick when scrolling, for a unique look */
-    height: fit-content;
 }
 
-.visual-callout img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 25px;
-}
-
-.visual-callout h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.visual-callout ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.visual-callout li {
-    padding: 10px 0;
-    border-bottom: 1px solid #cce5ff;
-    font-size: 1.1em;
-    color: var(--text-color);
-}
-
-.visual-callout li i {
-    margin-right: 10px;
-    color: var(--accent-color); /* Green icon */
-}
-
-
-/* --- Form Styling & Validation Visuals --- */
-
-.booking-form h2 {
-    margin-bottom: 30px;
-    border-left: 5px solid var(--primary-color);
-    padding-left: 15px;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-
-.form-row .form-group {
-    flex: 1;
+.full-width {
+    grid-column: span 2;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
+label i {
+    color: #007bff;
+}
+
+/* High Contrast Inputs (Prevents Invisible Text) */
+input,
 select,
 textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #ced4da;
-    border-radius: 8px;
-    font-size: 1em;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 16px 20px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #1a1a1a;
+    /* Explicit dark color */
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    border-color: #007bff;
+    background: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.1);
     outline: none;
 }
 
-/* ERROR FEEDBACK STYLING (Crucial for JS validation) */
-.error-message {
-    display: block;
-    color: #dc3545; /* Red error color */
-    font-size: 0.85em;
-    margin-top: 5px;
-    height: 1.2em; /* Reserve space to prevent layout jump */
-}
-
-/* Visual cue for invalid fields */
-.form-group.invalid input,
-.form-group.invalid select,
-.form-group.invalid textarea {
-    border-color: #dc3545;
-}
-
-/* Feedback message for successful submission */
-.form-feedback {
+/* Modern Submit Button */
+.submit-glow {
+    width: 100%;
+    padding: 20px;
+    /* background: var(--text-main); */
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.4s;
     margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
+}
+
+.submit-glow:hover {
+    background: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
+}
+
+/* Success State Styling */
+.success-content {
     text-align: center;
-    font-weight: bold;
-    display: none; /* Hidden by default, shown by JavaScript */
+    padding: 40px 0;
+    animation: fadeIn 0.6s ease-out;
 }
 
-.form-feedback.success {
-    background-color: #d4edda;
-    color: #155724;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Media Query for Responsiveness */
-@media (max-width: 900px) {
-    .booking-container {
-        flex-direction: column;
-        gap: 30px;
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .input-grid {
+        grid-template-columns: 1fr;
     }
-    .visual-callout {
-        order: -1; /* Puts the visual above the form on mobile */
-        position: static;
-        height: auto;
+
+    .booking-card {
+        padding: 40px 20px;
     }
-    .form-row {
-        flex-direction: column;
+
+    .card-header h2 {
+        font-size: 2rem;
     }
 }

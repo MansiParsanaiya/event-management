@@ -4,104 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventPro | Book Your Event</title>
+    <title>EventPro | Reserve Your Date</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/booking.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
 </head>
 
 <body>
-
     <div id="header-placeholder"></div>
-    <main>
-        <section class="booking-hero">
-            <h1>Start Your Event Journey</h1>
-            <p>Fill out the form below, and our dedicated event manager will reach out within 24 hours.</p>
-        </section>
 
-        <section class="booking-container">
+    <main class="booking-page">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
 
-            <div class="form-wrapper">
-                <form id="bookingForm" class="booking-form">
-                    <h2>Event Booking Request</h2>
-
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
-                        <span class="error-message" id="error-fullName"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="text" id="email" name="email" placeholder="example@domain.com">
-                        <span class="error-message" id="error-email"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" placeholder="(123) 456-7890">
-                        <span class="error-message" id="error-phone"></span>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="eventType">Type of Event</label>
-                            <select id="eventType" name="eventType">
-                                <option value="">Select Event Type</option>
-                                <option value="Corporate">Corporate Conference</option>
-                                <option value="Wedding">Wedding/Reception</option>
-                                <option value="Concert">Concert/Music Festival</option>
-                                <option value="Seminar">Workshop/Seminar</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <span class="error-message" id="error-eventType"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="event-date">Proposed Event Date</label>
-                            <input type="date" id="event-date" name="event-date" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guests">Estimated Guest Count</label>
-                        <input type="number" id="guests" name="guests" min="50" max="5000"
-                            placeholder="Minimum 50 guests">
-                        <span class="error-message" id="error-guests"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="event-details">Event Details (Max 500 characters)</label>
-                        <textarea id="event-details" name="event-details" rows="5" required></textarea>
-                        <small id="char-count">0 / 500 characters remaining</small>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary submit-btn">Submit Request</button>
-
-                    <div id="form-feedback" class="form-feedback"></div>
-                </form>
+        <section class="booking-card">
+            <div class="card-header">
+                <h2>Secure Your <span class="text-gradient">Event</span></h2>
+                <p>Let's turn your vision into an iconic experience.</p>
             </div>
 
-            <div class="visual-callout">
-                <img src="images/img1.jpg" alt="Event Planning Illustration">
-                <h3>Why Choose EventPro?</h3>
-                <ul>
-                    <li><i class="fa-solid fa-calendar-check"></i> Seamless Planning</li>
-                    <li><i class="fa-solid fa-users-line"></i> Dedicated Team</li>
-                    <li><i class="fa-solid fa-lightbulb"></i> Creative Concepts</li>
-                    <li><i class="fa-solid fa-map-location-dot"></i> Global Venue Access</li>
-                </ul>
-                <a href="services.html" class="btn btn-secondary">Learn About Our Services</a>
-            </div>
+            <form id="newBookingForm">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-user"></i> Full Name</label>
+                        <input type="text" placeholder="e.g. Alex Johnson" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-envelope"></i> Business Email</label>
+                        <input type="email" placeholder="alex@company.com" required>
+                    </div>
+                </div>
 
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-calendar-day"></i> Preferred Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-layer-group"></i> Event Category</label>
+                        <select required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option>Corporate Conference</option>
+                            <option>Luxury Wedding</option>
+                            <option>Product Launch</option>
+                            <option>Private Gala</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label><i class="fa-solid fa-comment-dots"></i> Your Vision</label>
+                    <textarea rows="4" placeholder="Briefly describe what you have in mind..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-glow">
+                    Send Inquiry <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+            </form>
         </section>
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/load-components.js"></script>
-
-    <script src="js/validation.js"></script>
     <script src="js/booking.js"></script>
+
 </body>
 
 </html>

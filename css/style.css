@@ -118,6 +118,32 @@ a {
     100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
 
+/* 
+.featured-events
+.testimonials
+.value-proposition
+ {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.carousel-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; 
+    padding: 10px 0;
+   
+}
+.value-proposition {
+    margin: 60px auto; 
+    background-color: var(--light-bg);
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+ */
+
 
 /* ------------------------------------------------------------------- */
 /* --- 2. NAVIGATION & HEADER (Transparent to Sticky Transition) --- */
@@ -152,22 +178,6 @@ a {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* STICKY/SCROLLED STATE: The header becomes solid white with a shadow */
-.main-header.scrolled {
-    background-color: #ffffff;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-    /* Grey Shadow */
-    animation: slideDown 0.4s ease-out;
-    /* Keeps the smooth slide-down effect */
-}
-
-/* Reset link colors when scrolled */
-.main-header.scrolled .logo a,
-.main-header.scrolled .main-nav ul li a {
-    color: var(--secondary-color);
-    /* Change to dark color (black/dark grey) */
-    text-shadow: none;
-}
 
 
 /* --- Shared Navigation Styles (Apply to both states) --- */

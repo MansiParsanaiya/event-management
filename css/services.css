@@ -1,178 +1,255 @@
-/* --- Dedicated Services Page Styles (css/services.css) --- */
+.service-page .main-header {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+}
 
-/* Re-use global variables from style.css */
-/* Ensure you use variables like --primary-color, --secondary-color, etc. */
+.service-page .main-header .logo,
+.service-page .main-header nav a {
+    color: white !important;
+}
 
 .container {
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Services Hero (Unique Look) */
+.text-gradient {
+    background: linear-gradient(90deg, #007bff, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 1. Hero with Glow Orbs */
 .services-hero {
-    background: #e8f4ff; /* Lighter shade of blue/white */
+    position: relative;
+    padding: 120px 0 80px;
     text-align: center;
-    padding: 80px 20px;
-    border-bottom: 5px solid var(--primary-color);
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.12;
+    z-index: 1;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #007bff;
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: #2ecc71;
+    bottom: -50px;
+    right: -50px;
 }
 
 .services-hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    color: var(--primary-color);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
-.services-hero p {
-    font-size: 1.3em;
-    max-width: 800px;
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 700px;
     margin: 0 auto;
-    color: var(--secondary-color);
+    position: relative;
+    z-index: 2;
+}
+
+/* 2. Service Grid & Cards */
+.service-grid-section {
+    padding: 100px 0;
+    background: #fcfcfc;
 }
 
 .section-heading {
     text-align: center;
-    font-size: 2.8em;
-    margin-bottom: 50px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-/* Unique Underline Style */
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background-color: var(--accent-color); /* Use the green accent for pop */
-    border-radius: 2px;
-}
-
-
-/* Dribbble Style Service Grid (CSS Grid) */
-.service-grid-section {
-    padding: 80px 0;
-    background: var(--light-bg);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
 }
 
 .service-grid {
     display: grid;
-    /* 3 columns on desktop, responsive fallback */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
 .service-card {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 5px solid var(--primary-color); /* Subtle design element */
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid #eee;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border-top-color: var(--accent-color);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    border-color: #007bff;
 }
 
-.service-card i {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    display: block;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 50%;
-    /* Default icon background */
-    background: #f1f7fe; 
+/* Icon Size decreased as requested */
+.icon-wrapper {
+    width: 60px;
+    /* Decreased from 70px */
+    height: 60px;
+    /* Decreased from 70px */
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    /* Decreased from 2rem */
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
 }
 
-/* Custom Icon Colors for variety (Dribbble look) */
-.service-card .icon-blue { color: #007bff; }
-.service-card .icon-green { color: #28a745; }
-.service-card .icon-orange { color: #ff9800; }
-.service-card .icon-red { color: #e74c3c; }
-.service-card .icon-purple { color: #8e44ad; }
-.service-card .icon-teal { color: #008080; }
+.service-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Icon Colors */
+.icon-blue {
+    background: #eef6ff;
+    color: #007bff;
+}
+
+.icon-green {
+    background: #e8f7ed;
+    color: #28a745;
+}
+
+.icon-orange {
+    background: #fff4e6;
+    color: #fd7e14;
+}
+
+.icon-red {
+    background: #fff0f0;
+    color: #dc3545;
+}
+
+.icon-purple {
+    background: #f3f0ff;
+    color: #6f42c1;
+}
+
+.icon-teal {
+    background: #e6fcf5;
+    color: #20c997;
+}
 
 .service-card h3 {
-    font-size: 1.8em;
+    font-size: 1.6rem;
     margin-bottom: 15px;
-    color: var(--secondary-color);
 }
 
 .service-card p {
+    color: #666;
     margin-bottom: 25px;
-    line-height: 1.5;
-    color: var(--text-color);
+    line-height: 1.7;
 }
 
 .service-link {
-    display: inline-block;
-    color: var(--primary-color);
+    font-weight: 700;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
 }
 
-.service-link i {
-    font-size: 1em; /* smaller icon for link */
-    margin-left: 8px;
-    transition: transform 0.3s;
-}
-
-.service-link:hover {
-    color: #0056b3;
-}
-
-.service-link:hover i {
-    transform: translateX(5px);
-}
-
-/* Call to Action Section (CTA) */
+/* 3. CTA Glass Card */
 .cta-section {
+    padding: 100px 0;
+}
+
+.cta-glass-card {
+    background: rgba(44, 62, 80, 0.95);
+    padding: 80px 40px;
+    border-radius: 40px;
     text-align: center;
-    padding: 80px 20px;
-    background: var(--secondary-color); /* Dark section for high contrast */
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-section h2 {
-    font-size: 3em;
-    margin-bottom: 15px;
+.cta-glass-card h2 {
     color: white;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
-.cta-section p {
-    font-size: 1.4em;
-    margin-bottom: 30px;
+.cta-glass-card p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
 }
 
-.btn-large {
-    padding: 15px 40px;
-    font-size: 1.2em;
+.btn-primary-creative {
+    background: #2ecc71;
+    color: #2c3e50;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: 0.3s;
+    text-decoration: none;
 }
 
-
-/* Media Query for Responsiveness */
-@media (max-width: 992px) {
-    .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    }
+.btn-primary-creative:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
 }
 
-@media (max-width: 600px) {
+/* 4. Animations */
+.reveal,
+.reveal-up {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.reveal {
+    transform: translateY(30px);
+}
+
+.reveal-up {
+    transform: translateY(60px);
+}
+
+.reveal.active,
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
     .services-hero h1 {
-        font-size: 2.5em;
+        font-size: 2.5rem;
     }
-    .section-heading {
-        font-size: 2em;
-    }
-    .cta-section h2 {
-        font-size: 2.2em;
+
+    .cta-glass-card h2 {
+        font-size: 2rem;
     }
 }

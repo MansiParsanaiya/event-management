@@ -2,11 +2,22 @@
 
 /* --- 4. Our Work Section (Advanced Animation) Styling --- */
 
+
 .work-gallery {
     padding: 80px 0;
     text-align: center;
     overflow: hidden;
     /* Crucial for vertical scrolling columns */
+}
+
+.work-gallery h2 {
+    font-size: 3em;
+    /* margin-bottom: 25px; */
+}
+
+.section-description{
+    font-size: 20px;
+    margin-bottom: 50px;
 }
 
 .gallery__columns-container {
@@ -283,86 +294,6 @@
     margin-bottom: 50px;
 }
 
-.category-grid {
-    display: grid;
-    /* Increased columns to fit the visual style better */
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 20px;
-}
-
-.category-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 10px;
-    background: transparent;
-    /* Card itself is transparent */
-    border-radius: 15px;
-    text-decoration: none;
-    color: var(--secondary-color);
-    /* Dark text color */
-    /* Remove box shadow from the card container */
-    box-shadow: none;
-    transition: transform 0.3s ease-out;
-}
-
-/* Icon Wrapper: Creates the large circle */
-.icon-wrapper {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    /* Perfect circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-
-    /* Base style: White circle with subtle blue border */
-    background-color: white;
-    border: 2px solid #ddd;
-    transition: all 0.4s ease-out;
-}
-
-/* Icon Styling: Outline icon look */
-.icon-wrapper i {
-    font-size: 2.5em;
-    /* Icon size */
-    color: var(--primary-color, #007bff);
-    transition: color 0.4s ease-out;
-}
-
-.category-card span {
-    font-weight: 600;
-    font-size: 1em;
-    text-align: center;
-    /* Added to fix alignment issues when text wraps */
-    min-height: 2.2em;
-}
-
-
-/* --- HOVER EFFECT (Matching the image) --- */
-
-.category-card:hover {
-    transform: translateY(-5px);
-    /* Subtle lift */
-    color: var(--primary-color);
-    /* Highlight text color on hover */
-}
-
-/* On hover, fill the background of the circle with a light/pastel color */
-.category-card:hover .icon-wrapper {
-    background-color: rgba(0, 123, 255, 0.1);
-    /* Very light blue fill */
-    border-color: var(--primary-color);
-    /* Primary color border */
-}
-
-/* On hover, change the icon color */
-.category-card:hover .icon-wrapper i {
-    color: var(--accent-color, #f1683a);
-    /* Accent color for the icon itself */
-}
 
 /* Media Query Adjustment for smaller screens */
 @media (max-width: 600px) {
@@ -385,6 +316,96 @@
     }
 }
 
+
+.category-icons {
+    padding: 60px 0;
+    overflow-x: auto; /* Allows scrolling if screen is too small */
+}
+
+/* Force all items into one row */
+.category-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    min-width: max-content; /* Ensures they stay in one line */
+    margin: 0 auto;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 120px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-wrapper {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.icon-wrapper svg {
+    width: 35px;
+    height: 35px;
+    color: #475569; /* Soft Slate Gray */
+    transition: all 0.3s ease;
+}
+
+/* The "New" Badge */
+.badge-new {
+    position: absolute;
+    bottom: -5px;
+    background: #4f46e5;
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.category-card span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: center;
+}
+
+/* --- Creative Hover Effects --- */
+
+.category-card:hover {
+    transform: translateY(-8px);
+}
+
+.category-card:hover .icon-wrapper {
+    background: var(--bg-glow);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.category-card:hover svg {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    stroke-width: 2; /* Makes icon look bolder on hover */
+}
+
+/* Hide scrollbar for a cleaner look */
+.category-icons::-webkit-scrollbar {
+    display: none;
+}
 
 /* ------------------------------------------------------------------- */
 /* --- 6. FEATURED EVENTS (Card Refinement) --- */

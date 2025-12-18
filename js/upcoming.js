@@ -1,4 +1,4 @@
-// js/events.js
+// js/upcoming.js
 
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -38,31 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- PART B: ADVANCED GEOLOCATION API INTEGRATION (The Killer Feature) ---
     
-    // Fallback function to display location name from coordinates (Simulated Reverse Geocoding)
-    function simulateReverseGeocode(lat, lon) {
-        // In a real project, we would use a service like Google Maps API here.
-        // For a pure HTML/CSS/JS project, we'll use simple hardcoded logic.
-        
-        let city = "your area";
-        let state = "local region";
+    function showLocationMessage(city, state) {
+    locationBar.innerHTML = `
+        <i class="fa-solid fa-map-pin"></i>
+        <strong>Location Alert:</strong> We see you are near <strong>${city}, ${state}</strong>! 
+        Check out our upcoming <strong>${city} Tech Summit</strong> next month!
+    `;
+    locationBar.style.display = 'flex';
+}
 
-        // Simple logic based on coordinates
-        if (lat > 40 && lat < 50 && lon < -70 && lon > -100) {
-            city = "New York"; // Coordinates near NYC
-            state = "USA";
-        } else if (lat > 50 && lat < 60 && lon > 0 && lon < 10) {
-            city = "London"; // Coordinates near London
-            state = "UK";
-        }
-        
-        return { city: city, state: state };
-    }
 
 
     // Success function for Geolocation
     function success(pos) {
         const coords = pos.coords;
-        const location = simulateReverseGeocode(coords.latitude, coords.longitude);
+        const location = showLocationMessage(coords.latitude, coords.longitude);
         
         const message = `
             <i class="fa-solid fa-map-pin"></i> 
