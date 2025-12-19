@@ -1,6 +1,5 @@
 :root {
     --primary: #007bff;
-    /* --secondary: #2c3e50; */
     --accent: #2ecc71;
     --glass: rgba(255, 255, 255, 0.8);
     --secondary: #2c3e50;
@@ -9,11 +8,8 @@
 .main-header .logo a,
 .main-header .main-nav ul li a {
     color: var(--secondary-color);
-    /* Initial white text for contrast on the dark slider image */
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-    /* Text shadow for better visibility */
 }
-
 
 /* --- HERO SECTION --- */
 .about-hero {
@@ -31,8 +27,6 @@
     color: var(--secondary-color);
     text-transform: capitalize;
 }
-
-
 .text-gradient {
     background: linear-gradient(
         120deg,
@@ -212,4 +206,60 @@
 .active {
     opacity: 1;
     transform: translate(0, 0);
+}
+
+
+/* --- ABOUT PILLARS SECTION --- */
+.about-pillars {
+    padding: 100px 5%;
+    background: linear-gradient(180deg, #ffffff, #f4f9ff);
+    text-align: center;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.pillar-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 45px 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    opacity: 0.08;
+}
+
+.pillar-card i {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.pillar-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--secondary);
+}
+
+.pillar-card p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.pillar-card:hover {
+    transform: translateY(-12px);
 }

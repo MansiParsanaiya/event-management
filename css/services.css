@@ -1,18 +1,11 @@
 :root {
     --primary: #007bff;
-    /* --secondary: #2c3e50; */
     --accent: #2ecc71;
-    /* --glass: rgba(255, 255, 255, 0.8); */
-    /* --secondary: #2c3e50; */
 }
-
-
 .main-header .logo a,
 .main-header .main-nav ul li a {
     color: var(--secondary-color);
-    /* Initial white text for contrast on the dark slider image */
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-    /* Text shadow for better visibility */
 }
 
 html,
@@ -25,16 +18,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* 
-    .text-gradient2 {
-        background: linear-gradient(90deg, #007bff, #2ecc71);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    } */
-
-
-
 /* 1. Hero with Glow Orbs */
 .services-hero {
     position: relative;
@@ -119,18 +102,14 @@ body {
     border-color: #007bff;
 }
 
-/* Icon Size decreased as requested */
 .icon-wrapper {
     width: 60px;
-    /* Decreased from 70px */
     height: 60px;
-    /* Decreased from 70px */
     border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    /* Decreased from 2rem */
     margin-bottom: 25px;
     transition: transform 0.3s ease;
 }
@@ -265,21 +244,14 @@ body {
         font-size: 2rem;
     }
 }
-
-
-
 /* ===== Services Hero Heading Enhancement ===== */
 .services-hero h1 {
-    /* font-size: 4.2rem; */
     font-size: clamp(2.8rem, 5vw, 4.2rem);
     font-weight: 900;
     letter-spacing: -1px;
     line-height: 1.15;
     color: var(--secondary-color);
 }
-
-/* Gradient glow ONLY for highlighted word */
-
 .text-gradient {
     background: linear-gradient(120deg,
             var(--primary),
@@ -306,14 +278,9 @@ body {
         background-position: 0% 50%;
     }
 }
-
-/* Subtle glow behind gradient text */
 .services-hero .text-gradient {
-
     filter: drop-shadow(0 6px 20px rgba(0, 123, 255, 0.25));
 }
-
-/* Gradient animation */
 @keyframes gradientMove {
     to {
         background-position: 200% center;
@@ -321,7 +288,6 @@ body {
 }
 
 .hero-subtitle {
-    /* font-size: 1.35rem; */
     color: #555;
     max-width: 720px;
     margin: 0 auto;

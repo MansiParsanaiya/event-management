@@ -3,9 +3,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('bookingForm');
     const feedback = document.getElementById('form-feedback');
-
-    // REGULAR EXPRESSIONS (Key part to impress your professor!)
-    // These patterns are robust and directly relate to the content in Ch-4.
     const regex = {
         fullName: /^[A-Za-z\s]{3,}$/, // Letters and spaces, minimum 3 characters
         email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, // Standard robust email format
@@ -13,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         guests: /^\d{2,4}$/ // 2 to 4 digits (e.g., 50 to 5000)
     };
 
-    // Helper function to show/hide error messages
     function displayError(fieldId, message) {
         const errorElement = document.getElementById(`error-${fieldId}`);
         const inputElement = document.getElementById(fieldId).parentNode;

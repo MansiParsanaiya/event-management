@@ -46,7 +46,6 @@ window.addEventListener("scroll", () => {
 
 function setActiveNavLink() {
 
-    // Highlight active nav link
     const currentPage = window.location.pathname.split("/").pop();
 
     document.querySelectorAll(".main-nav ul li a").forEach(link => {

@@ -1,15 +1,18 @@
-/* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
-/* --- THEME UPGRADE: Glassmorphism & Orbs --- */
-
 .main-header .logo a,
 .main-header .main-nav ul li a {
     color: var(--secondary-color);
-    /* Initial white text for contrast on the dark slider image */
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-    /* Text shadow for better visibility */
 }
-
-
+:root {
+    --primary: #007bff;
+    --accent: #2ecc71;
+    --glass: rgba(255, 255, 255, 0.8);
+    --secondary: #2c3e50;
+}
+html,
+body {
+    overflow-x: hidden;
+}
 /* 1. Moving Background Orbs */
 .glow-orb {
     position: absolute;
@@ -31,21 +34,6 @@
     to { transform: translate(100px, 50px) scale(1.2); }
 }
 
-/* 2. Hero Section Transparency */
-.events-hero {
-    background: transparent !important; /* Remove the solid light blue */
-    border-bottom: none !important;
-    position: relative;
-    z-index: 2;
-}
-
-.text-gradient {
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* 3. The Filter Tabs "Glass Pill" */
 .filter-tabs {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
@@ -56,7 +44,6 @@
     margin: 0 auto 40px auto;
 }
 
-/* 4. The Event Card "Glass Upgrade" */
 .event-card {
     background: rgba(255, 255, 255, 0.6) !important;
     backdrop-filter: blur(20px) !important;
@@ -65,40 +52,48 @@
     border-left: 8px solid var(--accent-color) !important; /* Keep your signature border */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05) !important;
 }
-
-/* 5. Date Box Modernization */
 .event-date-box {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
     border-radius: 0 20px 20px 0; /* Curvy inner edge */
 }
-
-/* 6. Location Bar Glass Effect */
 .location-bar {
     background: rgba(212, 237, 218, 0.6) !important;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
 
-
-/* 1. Events Hero */
 .events-hero {
-    background: #e9f4ff; /* Light blue background */
+    position: relative;
+    z-index: 2;
+    padding: 140px 20px 100px;
     text-align: center;
-    padding: 70px 20px;
-    border-bottom: 5px solid var(--primary-color);
-}
 
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
 .events-hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.events-hero p {
-    font-size: 1.3em;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 4.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
     color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    line-height: 1.15;
+}
+.events-hero h1 .text-gradient2 {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.events-hero p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.7;
+    font-weight: 700;
+    font-size: 25px;
 }
 
 .section-heading {
@@ -107,9 +102,6 @@
     margin: 40px 0 20px;
     color: var(--secondary-color);
 }
-
-
-/* 2. Filter Tabs (Flexbox for Alignment) */
 .events-section {
     padding: 20px 0 80px;
     background: var(--light-bg);
@@ -128,7 +120,7 @@
     border: 2px solid var(--primary-color);
     background: white;
     color: var(--primary-color);
-    border-radius: 30px; /* Pill-shaped buttons */
+    border-radius: 30px; 
     font-size: 1em;
     font-weight: 600;
     cursor: pointer;
@@ -146,19 +138,15 @@
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
 }
 
-
-/* 3. Event Cards Container (CSS Grid) */
 .event-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Wide, spacious cards */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
     gap: 30px;
     padding: 0 20px;
 }
 
-
-/* Event Date Box (Left side of card) */
 .event-date-box {
-    flex-shrink: 0; /* Prevents shrinking */
+    flex-shrink: 0;
     width: 100px;
     background: var(--primary-color);
     color: white;
@@ -180,8 +168,6 @@
     font-weight: 700;
     line-height: 1;
 }
-
-/* Event Details (Right side of card) */
 .event-details {
     padding: 20px;
     flex-grow: 1;
@@ -210,18 +196,13 @@
     font-size: 1em;
     color: var(--text-color);
 }
-
-/* Hidden state for JS filtering */
 .event-card.hidden {
     display: none;
     opacity: 0;
 }
-
-
-/* Media Queries for Responsiveness */
 @media (max-width: 992px) {
     .event-cards-container {
-        grid-template-columns: 1fr; /* Single column on medium screens */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -230,10 +211,10 @@
         font-size: 2.5em;
     }
     .event-card {
-        flex-direction: column; /* Stack date box and details on small screens */
+        flex-direction: column; 
         text-align: center;
-        border-left: none; /* Remove left border */
-        border-top: 5px solid var(--accent-color); /* Use top border instead */
+        border-left: none; 
+        border-top: 5px solid var(--accent-color); 
     }
     .event-date-box {
         width: 100%;
@@ -243,16 +224,11 @@
         text-align: left;
     }
 }
-
-/* --- Dedicated Upcoming Events Styles (css/upcoming.css) --- */
-/* ... (Existing styles from step 14 remain) ... */
-
-/* 4. NEW: Geolocation Dynamic Bar (Dribbble-Style Notification) */
 .location-bar {
     margin: 30px auto;
     padding: 20px 30px;
-    background-color: #d4edda; /* Success/Soft Green color */
-    color: #155724; /* Dark green text */
+    background-color: #d4edda; 
+    color: #155724; 
     border: 1px solid #c3e6cb;
     border-radius: 8px;
     font-size: 1.1em;
@@ -260,7 +236,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2); /* Soft green shadow */
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2); 
 }
 
 .location-bar i {
@@ -270,9 +246,7 @@
 }
 
 .location-bar.error {
-    background-color: #f8d7da; /* Error/Soft Red color */
+    background-color: #f8d7da; 
     color: #721c24;
     border-color: #f5c6cb;
 }
-
-/* ... (Rest of existing styles from step 14 below) ... */

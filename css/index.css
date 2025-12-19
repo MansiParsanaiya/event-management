@@ -1,25 +1,16 @@
 /* our work */
-
-/* --- 4. Our Work Section (Advanced Animation) Styling --- */
-
-
 .work-gallery {
     padding: 80px 0;
     text-align: center;
     overflow: hidden;
-    /* Crucial for vertical scrolling columns */
 }
-
 .work-gallery h2 {
     font-size: 3em;
-    /* margin-bottom: 25px; */
 }
-
 .section-description{
     font-size: 20px;
     margin-bottom: 50px;
 }
-
 .gallery__columns-container {
     display: flex;
     gap: 20px;
@@ -29,14 +20,12 @@
     margin-left: auto;
     margin-right: auto;
     height: 600px;
-    /* Define viewport height for vertical columns */
 }
 
 .gallery__column {
     width: calc(33.33% - 13.33px);
     overflow: hidden;
     position: relative;
-    /* Optional: Mask the column ends for a fading effect */
     mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
@@ -44,7 +33,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Animation speed is defined by duration */
 }
 
 .column--up .column__track {
@@ -55,7 +43,6 @@
     animation: scrollDown 45s linear infinite;
 }
 
-/* Specific speed overrides for unique feel */
 .gallery__columns-container>.gallery__column:nth-child(1) .column__track {
     animation-duration: 40s;
 }
@@ -83,8 +70,6 @@
     transition: transform 0.4s;
 }
 
-/* Pause and Focus on Hover */
-/* Use :has() for modern browsers to pause parent when child is hovered */
 .gallery__column:has(.gallery__image:hover) .column__track {
     animation-play-state: paused;
 }
@@ -101,11 +86,7 @@
 
 .gallery__image:hover img {
     transform: scale(1.05);
-    /* Slight internal zoom on hover */
 }
-
-
-/* Keyframe Animations for Vertical Scroll */
 @keyframes scrollUp {
     0% {
         transform: translateY(0);
@@ -114,8 +95,6 @@
     100% {
         transform: translateY(-50%);
     }
-
-    /* Halfway across the doubled track */
 }
 
 @keyframes scrollDown {
@@ -123,31 +102,22 @@
         transform: translateY(-50%);
     }
 
-    /* Start at the duplicated content */
     100% {
         transform: translateY(0);
     }
 }
 
-
-/* ------------------------------------------------------------------- */
 /* --- 3. HERO SECTION & SEARCH BAR (Animated Focus) --- */
-/* ------------------------------------------------------------------- */
-/* ------------------------------------------------------------------- */
-/* --- DYNAMIC HERO SECTION (Momentary Dominance) --- */
-/* ------------------------------------------------------------------- */
 
 .hero-slider-section {
     position: relative;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Crucial for background effects */
+    overflow: hidden; 
 }
-
-/* Container for the image and overlay */
 .hero-image-container {
     position: absolute;
     top: 0;
@@ -157,12 +127,10 @@
     z-index: 1;
 }
 
-/* Background Image and Ken Burns Effect */
 .hero-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Subtle Ken Burns animation: slow zoom-in */
     transform: scale(1.05); 
     animation: kenBurnsZoom 30s ease-out infinite alternate;
     transition: opacity 1s ease-in-out;
@@ -181,7 +149,6 @@
     }
 }
 
-/* Dark Gradient Overlay for Readability */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -190,23 +157,23 @@
     height: 100%;
     z-index: 2;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
-    transition: background 0.5s; /* Smooth transition for potential future themes */
+    transition: background 0.5s; 
 }
 
 .hero-content-wrapper {
     position: relative;
-    z-index: 10; /* Ensures content is above the image and overlay */
+    z-index: 10; 
     color: white;
     max-width: 900px;
     padding: 0 20px;
 }
 
 .hero-content-wrapper h1 {
-    font-size: 5.5em; /* Massive, impactful title */
+    font-size: 5.5em; 
     font-weight: 900;
     margin-bottom: 25px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-    color: white; /* Override var(--secondary-color) */
+    color: white; 
     line-height: 1.1;
 }
 
@@ -219,12 +186,10 @@
 
 #dynamic-category {
     font-weight: 700;
-    color: var(--accent-color); /* Highlight the dynamically changing word */
+    color: var(--accent-color); 
     display: inline-block;
     transition: opacity 0.3s ease-in-out;
 }
-
-/* Button grouping for clean layout */
 .hero-cta-btn {
     margin-right: 15px;
 }
@@ -241,7 +206,6 @@
     color: white;
     transform: translateY(-2px);
 }
-/* Responsive Adjustments for Hero Section */
 @media (max-width: 1200px) {
     .hero-content-wrapper h1 {
         font-size: 4.5em;
@@ -253,7 +217,7 @@
 
 @media (max-width: 768px) {
     .hero-slider-section {
-        height: 80vh; /* Shorter on mobile */
+        height: 80vh; 
     }
     .hero-content-wrapper h1 {
         font-size: 3em;
@@ -273,13 +237,6 @@
     }
 }
 
-
-
-
-/* ------------------------------------------------------------------- */
-/* --- 4. CATEGORY ICONS (Unique 3D Lift Effect) --- */
-/* ------------------------------------------------------------------- */
-
 /* --- CATEGORY ICONS SECTION (Circular Style) --- */
 
 .category-icons {
@@ -294,12 +251,9 @@
     margin-bottom: 50px;
 }
 
-
-/* Media Query Adjustment for smaller screens */
 @media (max-width: 600px) {
     .category-grid {
         grid-template-columns: repeat(4, 1fr);
-        /* 4 columns on small devices */
     }
 
     .icon-wrapper {
@@ -319,17 +273,15 @@
 
 .category-icons {
     padding: 60px 0;
-    overflow-x: auto; /* Allows scrolling if screen is too small */
+    overflow-x: auto; 
 }
-
-/* Force all items into one row */
 .category-flex-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
     padding: 20px;
-    min-width: max-content; /* Ensures they stay in one line */
+    min-width: max-content; 
     margin: 0 auto;
 }
 
@@ -360,11 +312,9 @@
 .icon-wrapper svg {
     width: 35px;
     height: 35px;
-    color: #475569; /* Soft Slate Gray */
+    color: #475569; 
     transition: all 0.3s ease;
 }
-
-/* The "New" Badge */
 .badge-new {
     position: absolute;
     bottom: -5px;
@@ -384,8 +334,6 @@
     text-align: center;
 }
 
-/* --- Creative Hover Effects --- */
-
 .category-card:hover {
     transform: translateY(-8px);
 }
@@ -399,10 +347,8 @@
 .category-card:hover svg {
     color: var(--primary-color);
     transform: scale(1.1);
-    stroke-width: 2; /* Makes icon look bolder on hover */
+    stroke-width: 2; 
 }
-
-/* Hide scrollbar for a cleaner look */
 .category-icons::-webkit-scrollbar {
     display: none;
 }
@@ -423,39 +369,25 @@
     margin-bottom: 50px;
 }
 
-/* --- Carousel Container (Using Grid for Responsiveness) --- */
-
 .carousel-container {
     display: grid;
-    /* Grid layout: 1 column on small screens, 2 on medium, 3 on large */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Space between cards */
+    gap: 30px; 
     padding: 10px 0;
-    /* Optional: If you want a horizontal scrollable view for many cards: */
-    /* display: flex;
-    overflow-x: auto;
-    padding-bottom: 15px; */
 }
-
 /* --- Event Card Styling --- */
 
 .event-card {
     display: flex;
     flex-direction: column;
-    /* Background and corners */
     background-color: var(--light-bg);
     border-radius: 12px;
-    overflow: hidden; /* Ensures image corners are rounded */
-    
-    /* Modern shadow and transition for hover effect */
+    overflow: hidden; 
     box-shadow: 0 10px 25px var(--shadow-light);
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-    color: inherit; /* Inherit color to look like a card, not a standard link */
+    color: inherit; 
 }
-
-/* 3D Tilt Hover Effect for "Amazing" factor */
 .event-card:hover {
-    /* Subtle lift and rotation */
     transform: translateY(-8px) rotateZ(-0.5deg);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
@@ -465,8 +397,7 @@
 .card-image-wrapper {
     position: relative;
     width: 100%;
-    /* Aspect ratio for image */
-    padding-top: 60%; /* 5:3 aspect ratio (60% of width) */
+    padding-top: 60%; 
     overflow: hidden;
 }
 
@@ -476,16 +407,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers the area without distortion */
+    object-fit: cover; 
     transition: transform 0.5s ease-in-out;
 }
 
 .event-card:hover img {
-    /* Subtle zoom on hover */
     transform: scale(1.05);
 }
-
-/* --- Modern Badge/Overlay --- */
 
 .card-badge {
     position: absolute;
@@ -499,21 +427,18 @@
     font-weight: bold;
     z-index: 10;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    /* Adding a pulse animation for 'LIVE' to make it pop */
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); } /* var(--accent-color) */
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); } 
     70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
     100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
 
-/* --- Card Content --- */
-
 .card-content {
     padding: 20px;
-    flex-grow: 1; /* Ensures content area takes up remaining space */
+    flex-grow: 1;
 }
 
 .card-title {
@@ -526,7 +451,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.9em;
-    color: #95a5a6; /* Lighter grey for metadata */
+    color: #95a5a6; 
     margin-bottom: 15px;
 }
 
@@ -535,8 +460,6 @@
     align-items: center;
     gap: 5px;
 }
-
-/* --- Call to Action Button Look --- */
 
 .card-cta {
     display: inline-block;
@@ -551,7 +474,7 @@
 }
 
 .event-card:hover .card-cta {
-    background-color: #0056b3; /* Darker primary color on hover */
+    background-color: #0056b3; 
     transform: scale(1.05);
 }
 
@@ -561,7 +484,7 @@
 .value-proposition {
     padding: 80px 20px;
     max-width: var(--max-width);
-    margin: 60px auto; /* Provides separation from surrounding sections */
+    margin: 60px auto; 
     text-align: center;
     background-color: var(--light-bg);
     border-radius: 12px;
@@ -618,8 +541,6 @@
     color: var(--text-color);
     line-height: 1.5;
 }
-
-/* Responsive adjustments */
 @media (max-width: 600px) {
     .value-proposition h2 {
         font-size: 2.5em;
@@ -632,53 +553,83 @@
 /* --- 8. TESTIMONIALS SECTION --- */
 /* ------------------------------------------------------------------- */
 .testimonials {
-    padding: 80px 20px;
-    max-width: var(--max-width, 1200px);
-    margin: 0 auto;
-    text-align: center;
+  padding: 90px 10%;
+  background: #f9fafb;
+  text-align: center;
+  overflow: hidden;
 }
 
-.testimonials h2 {
-    font-size: 3em;
-    margin-bottom: 50px;
+.section-heading {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.section-heading::after {
+  content: "";
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(to right, #0d6efd, #00c6ff);
+  position: absolute;
+  bottom: -12px;
+  left: 20%;
+  border-radius: 10px;
+}
+
+.testimonial-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 20s infinite linear;
 }
 
 .testimonial-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: left;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    /* Unique touch: accent color border */
-    border-left: 5px solid var(--accent-color);
-    transition: transform 0.3s;
+  min-width: 320px;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  text-align: center;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
 }
 
-.testimonial-card i {
-    font-size: 2em;
-    color: var(--primary-color);
-    margin-bottom: 15px;
+.testimonial-card h4 {
+  margin-bottom: 8px;
+  color: #0d6efd;
+  font-weight: 600;
 }
 
+.stars {
+  color: #f4c430;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.testimonial-slider:hover .testimonial-track {
+  animation-play-state: paused;
+}
 .testimonial-card p {
-    font-style: italic;
-    font-size: 1.1em;
-    margin-bottom: 20px;
+  font-size: 14.5px;
+  color: #555;
+  line-height: 1.6;
 }
-
-.testimonial-card footer {
-    font-weight: 700;
-    color: var(--secondary-color);
-    font-style: normal;
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

@@ -2,13 +2,8 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Initial check for elements in view
     reveal();
-
-    // Start counting numbers
     animateNumbers();
-
-    // Listen for scroll
     window.addEventListener("scroll", reveal);
 });
 
@@ -33,7 +28,7 @@ function animateNumbers() {
 
     counters.forEach(counter => {
         const target = parseFloat(counter.getAttribute('data-target'));
-        const speed = 200; // Total duration factor
+        const speed = 200; 
 
         const updateCount = () => {
             const count = parseFloat(counter.innerText);

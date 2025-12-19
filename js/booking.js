@@ -4,14 +4,11 @@
 
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-
-                // Feedback state
                 const btn = form.querySelector('button');
                 btn.innerHTML = 'Processing... <i class="fa-solid fa-circle-notch fa-spin"></i>';
                 btn.style.pointerEvents = 'none';
 
                 setTimeout(() => {
-                    // Modern Success Transformation
                     card.innerHTML = `
                         <div class="success-content">
                             <div style="font-size: 5rem; color: #00d4ff; margin-bottom: 20px;">

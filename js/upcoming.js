@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const eventCards = document.querySelectorAll('.event-card');
     const locationBar = document.getElementById('location-bar');
     
-    // --- PART A: CORE FILTERING LOGIC (Existing from Step 15) ---
     function filterEvents(category) {
-        // ... (Existing filterEvents function implementation) ...
         eventCards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
             
@@ -22,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // --- Button Click Handler (Existing from Step 15) ---
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filterCategory = this.getAttribute('data-filter');
@@ -33,10 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    filterEvents('all'); // Initialize display
-
-
-    // --- PART B: ADVANCED GEOLOCATION API INTEGRATION (The Killer Feature) ---
+    filterEvents('all'); 
     
     function showLocationMessage(city, state) {
     locationBar.innerHTML = `
@@ -47,9 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
     locationBar.style.display = 'flex';
 }
 
-
-
-    // Success function for Geolocation
     function success(pos) {
         const coords = pos.coords;
         const location = showLocationMessage(coords.latitude, coords.longitude);
@@ -62,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         locationBar.innerHTML = message;
         locationBar.style.display = 'flex';
     }
-
-    // Error function for Geolocation (Crucial for high marks!)
     function error(err) {
         let errorMessage;
         
@@ -85,20 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
         locationBar.classList.add('error');
         locationBar.style.display = 'flex';
     }
-
-    // Check if browser supports Geolocation API
     if (navigator.geolocation) {
-        // Set up the options (High accuracy, low timeout)
         const options = {
             enableHighAccuracy: true,
             timeout: 5000, 
             maximumAge: 0
         };
-        
-        // Call the API
         navigator.geolocation.getCurrentPosition(success, error, options);
     } else {
-        // Fallback for old browsers
         locationBar.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Geolocation is not supported by your browser. Showing all global events.';
         locationBar.classList.add('error');
         locationBar.style.display = 'flex';

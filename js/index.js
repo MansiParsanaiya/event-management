@@ -1,14 +1,8 @@
-/**
- * index.js - Specific logic for the Home Page
- * Handles: Hero Slider, Vertical Gallery, and Dynamic Scroll Header
- */
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize all home-page specific features
     initHeroSlider();
     setupWorkGallery();
-
-    // Attach scroll listener for the transparent-to-solid header transition
     window.addEventListener('scroll', handleHeaderScroll);
 });
 
@@ -19,7 +13,6 @@ function handleHeaderScroll() {
 
     if (!header || !heroSection) return;
 
-    // Trigger transition when 80% of the hero is scrolled past
     const scrollThreshold = heroSection.offsetHeight * 0.8;
 
     if (window.scrollY > scrollThreshold) {
@@ -48,20 +41,17 @@ function initHeroSlider() {
     const transitionTime = 4000;
 
     setInterval(() => {
-        // Start Fade Out
         heroImageElement.classList.add('fade-out');
         dynamicCategoryElement.style.opacity = 0;
 
         setTimeout(() => {
-            // Swap Content
             currentIndex = (currentIndex + 1) % imagePaths.length;
             heroImageElement.src = imagePaths[currentIndex];
             dynamicCategoryElement.textContent = categories[currentIndex];
 
-            // Start Fade In
             heroImageElement.classList.remove('fade-out');
             dynamicCategoryElement.style.opacity = 1;
-        }, 1000); // Wait for fade-out to finish
+        }, 1000); 
     }, transitionTime);
 }
 
@@ -100,7 +90,32 @@ function setupWorkGallery() {
             </div>
         `).join('');
 
-        // duplicate for infinite scroll
         track.innerHTML = imageHTML + imageHTML;
     });
 }
+
+
+const testimonials = document.querySelectorAll(".testimonial-card");
+const dots = document.querySelectorAll(".testimonial-dots .dot");
+
+let currentIndex = 0;
+
+function showTestimonial(index) {
+    testimonials.forEach((t, i) => {
+        t.classList.toggle("active", i === index);
+        dots[i].classList.toggle("active", i === index);
+    });
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        currentIndex = index;
+        showTestimonial(currentIndex);
+    });
+});
+
+// Auto-slide
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+}, 5000);

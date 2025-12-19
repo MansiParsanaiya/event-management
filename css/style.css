@@ -156,26 +156,19 @@ a {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    /* CRITICAL: Must be fixed (not sticky) to sit over the slider */
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* High z-index to stay above content */
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    /* Smooth transition */
 }
 
-/* Color adjustments for links in the initial transparent state (white text on dark slider background) */
 .main-header .logo a,
 .main-header .main-nav ul li a {
     color: white;
-    /* Initial white text for contrast on the dark slider image */
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    /* Text shadow for better visibility */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* --- Shared Navigation Styles (Apply to both states) --- */
 
 .logo img {
   height: 70px;        
@@ -199,7 +192,6 @@ a {
     font-weight: 700;
 }
 
-/* Polished Underline Hover Effect */
 .main-nav ul li a::after {
     content: '';
     position: absolute;
@@ -218,13 +210,11 @@ a {
 }
 
 .nav-button {
-    /* Applied gradient style */
     background: linear-gradient(135deg, var(--primary-color), #0056b3) !important;
     color: white !important;
     padding: 10px 20px !important;
     border-radius: 8px;
     font-weight: bold;
-    /* Button Shadow */
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     border: none;
     transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
@@ -233,11 +223,9 @@ a {
 .nav-button:hover {
     background: linear-gradient(135deg, #0056b3, #003d80) !important;
     transform: translateY(-2px);
-    /* Subtle lift */
     box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
 }
 
-/* Resetting the button's underline effect */
 .nav-button::after {
     display: none;
 }
@@ -255,13 +243,10 @@ a {
 /* ------------------------------------------------------------------- */
 /* --- 7. FOOTER (Minor Polish) --- */
 /* ------------------------------------------------------------------- */
-/* --- Footer Styles --- */
 footer {
     background: var(--secondary-color, #1a202c);
-    /* Dark background (adjust secondary color if needed) */
     color: white;
     padding: 60px 0 20px;
-    /* Increased padding */
     margin-top: 60px;
 }
 
@@ -273,27 +258,22 @@ footer {
     margin: 0 auto;
     padding: 0 20px;
     flex-wrap: wrap;
-    /* Allows wrapping on smaller screens */
 }
 
 .footer-column {
     padding: 0 20px;
     margin-bottom: 30px;
-    /* Divide 1200px roughly into 3 columns */
     flex: 1;
     min-width: 250px;
-    /* Minimum width for columns before wrapping */
 }
 
 .footer-column h3 {
     color: var(--primary-color, #007bff);
-    /* Use the primary color for headings */
     font-size: 1.4em;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-/* Contact Info Styling */
 .contact-info p {
     margin: 10px 0;
     font-size: 0.95em;
@@ -306,7 +286,6 @@ footer {
     color: var(--accent-color, #f1683a);
 }
 
-/* Links Group Styling */
 .footer-links-group ul {
     list-style: none;
     padding: 0;
@@ -324,7 +303,6 @@ footer {
     color: var(--accent-color, #f1683a);
 }
 
-/* Social Icons Styling */
 .social-icons a {
     color: white;
     font-size: 1.2em;
@@ -338,11 +316,9 @@ footer {
     transform: scale(1.1);
 }
 
-/* Legal Links and Bottom Bar */
 .footer-links a {
     color: #adb5bd;
     margin-right: 20px;
-    /* Use margin-right for separation */
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9em;
@@ -363,7 +339,6 @@ footer {
     color: #adb5bd;
 }
 
-/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -385,53 +360,34 @@ footer {
     }
 }
 
-/* STICKY/SCROLLED STATE: Unified Glassy Light Theme */
 .main-header.scrolled {
-    /* * Ethereal Flow: Glassy Light Header 
-     * Subtle semi-transparency for a modern look 
-     */
     background-color: rgba(255, 255, 255, 0.85); /* 85% opaque white */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     animation: slideDown 0.4s ease-out;
-
-    /* CRITICAL: Adds the modern "glass" effect */
     backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px);
-    
-    /* Ensure the button is still slightly lifted/defined */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
 }
-
-/* Color Reset for links when scrolled (Dark text on Light background) */
 .main-header.scrolled .logo a,
 .main-header.scrolled .main-nav ul li a {
     color: var(--secondary-color);
     text-shadow: none;
 }
-
-
-/* --- 3. DYNAMIC CONTENT GRID (For Event Cards) --- */
-
 .event-listing-grid {
     display: grid;
-    /* Use grid for superior layout control */
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    /* Adaptive: 320px minimum card width */
     gap: 40px;
-    /* Generous spacing between cards */
     padding: 60px 0;
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
-/* Ensure your main content section has structure */
 section.events-section {
     padding: 80px 20px;
-    margin-top: -100px; /* If your header section is very tall */
+    margin-top: -100px; 
 }
 
 
-/* Accessibility Enhancement: Skip-to-content link */
 .skip-link {
     position: absolute;
     top: -40px;

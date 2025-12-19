@@ -5,17 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         reveals.forEach(el => {
             const elementTop = el.getBoundingClientRect().top;
-            const revealPoint = 100; // Trigger when element is 100px from bottom
+            const revealPoint = 100; 
 
             if (elementTop < windowHeight - revealPoint) {
                 el.classList.add("active");
             }
         });
     };
-
-    // Initial check on load
     revealOnScroll();
-
-    // Check on scroll
     window.addEventListener("scroll", revealOnScroll);
 });

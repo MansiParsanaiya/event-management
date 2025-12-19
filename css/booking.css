@@ -25,8 +25,6 @@
     position: relative;
     overflow: hidden;
 }
-
-/* --- THEME ELEMENT: Moving Glow Orbs --- */
 .glow-orb {
     position: absolute;
     width: 600px;
@@ -61,7 +59,6 @@
     }
 }
 
-/* --- THEME ELEMENT: Glassmorphism Card --- */
 .booking-card {
     position: relative;
     z-index: 10;
@@ -77,7 +74,6 @@
     margin-top: 80px;
 }
 
-/* --- THEME ELEMENT: Tech Gradient Text --- */
 .text-gradient {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
@@ -101,8 +97,6 @@
     font-size: 1.1rem;
     margin-top: 15px;
 }
-
-/* Clean Input Grid (Prevents Overlap) */
 .input-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -132,8 +126,6 @@ label {
 label i {
     color: #007bff;
 }
-
-/* High Contrast Inputs (Prevents Invisible Text) */
 input,
 select,
 textarea {
@@ -142,7 +134,6 @@ textarea {
     border-radius: 15px;
     font-size: 1rem;
     color: #1a1a1a;
-    /* Explicit dark color */
     background: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
@@ -157,11 +148,9 @@ textarea:focus {
     outline: none;
 }
 
-/* Modern Submit Button */
 .submit-glow {
     width: 100%;
     padding: 20px;
-    /* background: var(--text-main); */
     background: #007bff;
     color: white;
     border: none;
@@ -183,7 +172,6 @@ textarea:focus {
     box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
 }
 
-/* Success State Styling */
 .success-content {
     text-align: center;
     padding: 40px 0;
@@ -202,7 +190,6 @@ textarea:focus {
     }
 }
 
-/* Responsive Fixes */
 @media (max-width: 768px) {
     .input-grid {
         grid-template-columns: 1fr;
